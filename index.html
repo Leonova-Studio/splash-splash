@@ -131,64 +131,66 @@
   </header>
   <main class="w-full"><!-- ============================================ --> <!-- LANDING 1: HOME con carrusel de imágenes reales --> <!-- ============================================ -->
    <section id="home" class="w-full min-h-screen flex items-center justify-center pt-20 pb-10 bg-gradient-to-br from-slate-900 via-slate-800 to-teal-900">
-    <div class="max-w-7xl mx-auto px-4 w-full grid lg:grid-cols-2 gap-10 items-center"><!-- Texto -->
-     <div class="space-y-6 fade-in-up text-center lg:text-left">
-      <p class="inline-flex items-center gap-2 text-xs font-semibold tracking-[0.3em] uppercase text-cyan-300 bg-slate-800/70 rounded-full px-4 py-1.5 border border-cyan-400/40"><span class="w-2 h-2 rounded-full bg-teal-400 animate-pulse"></span> <span>Diseño · Construcción · Mantenimiento</span></p>
-      <h1 id="homeTitle" class="text-4xl md:text-5xl font-black tracking-tight leading-tight">Diseño y fabricación de piscinas de lujo</h1>
-      <p id="homeSubtitle" class="text-base md:text-lg text-slate-300 max-w-prose mx-auto lg:mx-0">Especializados en piscinas exclusivas para residencias de alto nivel, hoteles boutique y complejos turísticos. Diseño arquitectónico, fabricación premium, remodelación y mantenimiento integral.</p>
-      <div class="flex flex-col sm:flex-row gap-3 justify-center lg:justify-start"><a href="https://wa.me/18683253395?text=Hola%20SPLASH%20SPLASH!!!!%2C%20quiero%20cotizar%20mi%20piscina." target="_blank" rel="noopener noreferrer" class="inline-flex items-center justify-center gap-2 bg-teal-400 text-slate-900 font-bold text-sm px-6 py-3 rounded-full hover:bg-teal-300 transition-all soft-shadow"> <span>Cotiza tu piscina ahora</span>
-        <svg viewbox="0 0 24 24" aria-hidden="true" class="w-4 h-4"><path fill="currentColor" d="M5 12h11.2l-4.6 4.6 1.4 1.4L20 12l-7-7-1.4 1.4 4.6 4.6H5z" />
-        </svg></a> <a href="#services" class="inline-flex items-center justify-center gap-2 border-2 border-cyan-400/60 text-cyan-100 font-bold text-sm px-6 py-3 rounded-full hover:bg-cyan-400/10 transition-colors"> <span>Ver servicios</span> </a>
-      </div>
-      <div class="grid grid-cols-3 gap-4 pt-4 text-xs text-slate-300">
-       <div class="text-center lg:text-left">
-        <p class="text-2xl font-black text-teal-400">+200</p>
-        <p class="opacity-80">Piscinas fabricadas</p>
-       </div>
-       <div class="text-center lg:text-left">
-        <p class="text-2xl font-black text-teal-400">15+</p>
-        <p class="opacity-80">Hoteles de lujo</p>
-       </div>
-       <div class="text-center lg:text-left">
-        <p class="text-2xl font-black text-teal-400">100%</p>
-        <p class="opacity-80">Satisfacción garantizada</p>
-       </div>
-      </div>
-     </div><!-- Carrusel con imágenes reales -->
-     <div class="relative fade-in-up">
-      <div class="relative rounded-3xl overflow-hidden soft-shadow border-2 border-cyan-400/30">
-       <div id="carouselSlides" class="relative aspect-[4/3] w-full bg-slate-800"><!-- Slide 1: Hotel de lujo -->
-        <div class="carousel-slide absolute inset-0 active" data-index="0" aria-hidden="false"><img src="https://images.unsplash.com/photo-1571896349842-33c89424de2d?w=1200&amp;h=900&amp;fit=crop&amp;q=80" alt="Piscina de hotel de lujo con vista panorámica" class="w-full h-full object-cover" onerror="this.src=''; this.alt='Imagen no disponible'; this.style.display='none';">
-         <div class="absolute inset-0 bg-gradient-to-t from-slate-900/80 via-transparent to-transparent"></div>
-         <div class="absolute bottom-0 left-0 right-0 p-6 text-white">
-          <p class="text-xs font-semibold tracking-[0.25em] uppercase text-cyan-300 mb-1">Hoteles de lujo</p>
-          <h3 class="text-xl font-black">Piscinas exclusivas para complejos turísticos</h3>
+    <div class="max-w-7xl mx-auto px-4 w-full">
+     <div class="grid lg:grid-cols-2 gap-10 items-center"><!-- Carrusel con imágenes reales (PRIMERO en móvil, SEGUNDO en desktop) -->
+      <div class="relative fade-in-up order-1 lg:order-2">
+       <div class="relative rounded-3xl overflow-hidden soft-shadow border-2 border-cyan-400/30">
+        <div id="carouselSlides" class="relative aspect-[4/3] w-full bg-slate-800"><!-- Slide 1: Hotel de lujo -->
+         <div class="carousel-slide absolute inset-0 active" data-index="0" aria-hidden="false"><img src="https://images.unsplash.com/photo-1571896349842-33c89424de2d?w=1200&amp;h=900&amp;fit=crop&amp;q=80" alt="Piscina de hotel de lujo con vista panorámica" class="w-full h-full object-cover" onerror="this.src=''; this.alt='Imagen no disponible'; this.style.display='none';">
+          <div class="absolute inset-0 bg-gradient-to-t from-slate-900/80 via-transparent to-transparent"></div>
+          <div class="absolute bottom-0 left-0 right-0 p-6 text-white">
+           <p class="text-xs font-semibold tracking-[0.25em] uppercase text-cyan-300 mb-1">Hoteles de lujo</p>
+           <h3 class="text-xl font-black">Piscinas exclusivas para complejos turísticos</h3>
+          </div>
+         </div><!-- Slide 2: Residencia de alto nivel -->
+         <div class="carousel-slide absolute inset-0" data-index="1" aria-hidden="true"><img src="https://images.unsplash.com/photo-1564013799919-ab600027ffc6?w=1200&amp;h=900&amp;fit=crop&amp;q=80" alt="Piscina infinity en residencia de lujo" class="w-full h-full object-cover" onerror="this.src=''; this.alt='Imagen no disponible'; this.style.display='none';">
+          <div class="absolute inset-0 bg-gradient-to-t from-slate-900/80 via-transparent to-transparent"></div>
+          <div class="absolute bottom-0 left-0 right-0 p-6 text-white">
+           <p class="text-xs font-semibold tracking-[0.25em] uppercase text-cyan-300 mb-1">Residencias exclusivas</p>
+           <h3 class="text-xl font-black">Diseño arquitectónico personalizado</h3>
+          </div>
+         </div><!-- Slide 3: Piscina resort -->
+         <div class="carousel-slide absolute inset-0" data-index="2" aria-hidden="true"><img src="https://images.unsplash.com/photo-1602002418082-a4443e081dd1?w=1200&amp;h=900&amp;fit=crop&amp;q=80" alt="Piscina de resort con áreas de descanso" class="w-full h-full object-cover" onerror="this.src=''; this.alt='Imagen no disponible'; this.style.display='none';">
+          <div class="absolute inset-0 bg-gradient-to-t from-slate-900/80 via-transparent to-transparent"></div>
+          <div class="absolute bottom-0 left-0 right-0 p-6 text-white">
+           <p class="text-xs font-semibold tracking-[0.25em] uppercase text-cyan-300 mb-1">Complejos turísticos</p>
+           <h3 class="text-xl font-black">Fabricación e instalación completa</h3>
+          </div>
          </div>
-        </div><!-- Slide 2: Residencia de alto nivel -->
-        <div class="carousel-slide absolute inset-0" data-index="1" aria-hidden="true"><img src="https://images.unsplash.com/photo-1564013799919-ab600027ffc6?w=1200&amp;h=900&amp;fit=crop&amp;q=80" alt="Piscina infinity en residencia de lujo" class="w-full h-full object-cover" onerror="this.src=''; this.alt='Imagen no disponible'; this.style.display='none';">
-         <div class="absolute inset-0 bg-gradient-to-t from-slate-900/80 via-transparent to-transparent"></div>
-         <div class="absolute bottom-0 left-0 right-0 p-6 text-white">
-          <p class="text-xs font-semibold tracking-[0.25em] uppercase text-cyan-300 mb-1">Residencias exclusivas</p>
-          <h3 class="text-xl font-black">Diseño arquitectónico personalizado</h3>
+        </div><!-- Controles carrusel -->
+        <div class="absolute inset-x-0 bottom-0 flex items-center justify-between px-4 py-3 bg-slate-900/80 backdrop-blur-sm">
+         <div class="flex items-center gap-2"><button id="prevSlide" class="w-9 h-9 rounded-full border border-cyan-400/60 flex items-center justify-center hover:bg-cyan-400/10 transition-colors" aria-label="Anterior" type="button">
+           <svg viewbox="0 0 24 24" aria-hidden="true" class="w-4 h-4"><path fill="currentColor" d="M15 5l-7 7 7 7 1.4-1.4L10.8 12l5.6-5.6z" />
+           </svg></button> <button id="nextSlide" class="w-9 h-9 rounded-full border border-cyan-400/60 flex items-center justify-center hover:bg-cyan-400/10 transition-colors" aria-label="Siguiente" type="button">
+           <svg viewbox="0 0 24 24" aria-hidden="true" class="w-4 h-4"><path fill="currentColor" d="M9 5l7 7-7 7-1.4-1.4L13.2 12 7.6 6.4z" />
+           </svg></button>
          </div>
-        </div><!-- Slide 3: Piscina resort -->
-        <div class="carousel-slide absolute inset-0" data-index="2" aria-hidden="true"><img src="https://images.unsplash.com/photo-1602002418082-a4443e081dd1?w=1200&amp;h=900&amp;fit=crop&amp;q=80" alt="Piscina de resort con áreas de descanso" class="w-full h-full object-cover" onerror="this.src=''; this.alt='Imagen no disponible'; this.style.display='none';">
-         <div class="absolute inset-0 bg-gradient-to-t from-slate-900/80 via-transparent to-transparent"></div>
-         <div class="absolute bottom-0 left-0 right-0 p-6 text-white">
-          <p class="text-xs font-semibold tracking-[0.25em] uppercase text-cyan-300 mb-1">Complejos turísticos</p>
-          <h3 class="text-xl font-black">Fabricación e instalación completa</h3>
-         </div>
+         <div class="flex items-center gap-1.5"><button class="carousel-dot w-2 h-2 rounded-full bg-cyan-300/50 active" data-index="0" aria-label="Slide 1" type="button"></button> <button class="carousel-dot w-2 h-2 rounded-full bg-cyan-300/50" data-index="1" aria-label="Slide 2" type="button"></button> <button class="carousel-dot w-2 h-2 rounded-full bg-cyan-300/50" data-index="2" aria-label="Slide 3" type="button"></button>
+         </div><button id="toggleAutoplay" class="inline-flex items-center gap-2 text-xs font-medium text-cyan-100 border border-cyan-400/60 rounded-full px-3 py-1.5 hover:bg-cyan-400/10 transition-colors" type="button"> <span id="autoplayIcon"></span> <span id="autoplayLabel">Pausar</span> </button>
         </div>
-       </div><!-- Controles carrusel -->
-       <div class="absolute inset-x-0 bottom-0 flex items-center justify-between px-4 py-3 bg-slate-900/80 backdrop-blur-sm">
-        <div class="flex items-center gap-2"><button id="prevSlide" class="w-9 h-9 rounded-full border border-cyan-400/60 flex items-center justify-center hover:bg-cyan-400/10 transition-colors" aria-label="Anterior" type="button">
-          <svg viewbox="0 0 24 24" aria-hidden="true" class="w-4 h-4"><path fill="currentColor" d="M15 5l-7 7 7 7 1.4-1.4L10.8 12l5.6-5.6z" />
-          </svg></button> <button id="nextSlide" class="w-9 h-9 rounded-full border border-cyan-400/60 flex items-center justify-center hover:bg-cyan-400/10 transition-colors" aria-label="Siguiente" type="button">
-          <svg viewbox="0 0 24 24" aria-hidden="true" class="w-4 h-4"><path fill="currentColor" d="M9 5l7 7-7 7-1.4-1.4L13.2 12 7.6 6.4z" />
-          </svg></button>
+       </div>
+      </div><!-- Texto (SEGUNDO en móvil, PRIMERO en desktop) -->
+      <div class="space-y-6 fade-in-up text-center lg:text-left order-2 lg:order-1">
+       <p class="inline-flex items-center gap-2 text-xs font-semibold tracking-[0.3em] uppercase text-cyan-300 bg-slate-800/70 rounded-full px-4 py-1.5 border border-cyan-400/40"><span class="w-2 h-2 rounded-full bg-teal-400 animate-pulse"></span> <span>Diseño · Construcción · Mantenimiento</span></p>
+       <h1 id="homeTitle" class="text-4xl md:text-5xl font-black tracking-tight leading-tight">Diseño y fabricación de piscinas de lujo</h1>
+       <p id="homeSubtitle" class="text-base md:text-lg text-slate-300 max-w-prose mx-auto lg:mx-0">Especializados en piscinas exclusivas para residencias de alto nivel, hoteles boutique y complejos turísticos. Diseño arquitectónico, fabricación premium, remodelación y mantenimiento integral.</p>
+       <div class="flex flex-col sm:flex-row gap-3 justify-center lg:justify-start"><a href="https://wa.me/18683253395?text=Hola%20SPLASH%20SPLASH!!!!%2C%20quiero%20cotizar%20mi%20piscina." target="_blank" rel="noopener noreferrer" class="inline-flex items-center justify-center gap-2 bg-teal-400 text-slate-900 font-bold text-sm px-6 py-3 rounded-full hover:bg-teal-300 transition-all soft-shadow"> <span>Cotiza tu piscina ahora</span>
+         <svg viewbox="0 0 24 24" aria-hidden="true" class="w-4 h-4"><path fill="currentColor" d="M5 12h11.2l-4.6 4.6 1.4 1.4L20 12l-7-7-1.4 1.4 4.6 4.6H5z" />
+         </svg></a> <a href="#services" class="inline-flex items-center justify-center gap-2 border-2 border-cyan-400/60 text-cyan-100 font-bold text-sm px-6 py-3 rounded-full hover:bg-cyan-400/10 transition-colors"> <span>Ver servicios</span> </a>
+       </div>
+       <div class="grid grid-cols-3 gap-4 pt-4 text-xs text-slate-300">
+        <div class="text-center lg:text-left">
+         <p class="text-2xl font-black text-teal-400">+200</p>
+         <p class="opacity-80">Piscinas fabricadas</p>
         </div>
-        <div class="flex items-center gap-1.5"><button class="carousel-dot w-2 h-2 rounded-full bg-cyan-300/50 active" data-index="0" aria-label="Slide 1" type="button"></button> <button class="carousel-dot w-2 h-2 rounded-full bg-cyan-300/50" data-index="1" aria-label="Slide 2" type="button"></button> <button class="carousel-dot w-2 h-2 rounded-full bg-cyan-300/50" data-index="2" aria-label="Slide 3" type="button"></button>
-        </div><button id="toggleAutoplay" class="inline-flex items-center gap-2 text-xs font-medium text-cyan-100 border border-cyan-400/60 rounded-full px-3 py-1.5 hover:bg-cyan-400/10 transition-colors" type="button"> <span id="autoplayIcon"></span> <span id="autoplayLabel">Pausar</span> </button>
+        <div class="text-center lg:text-left">
+         <p class="text-2xl font-black text-teal-400">15+</p>
+         <p class="opacity-80">Hoteles de lujo</p>
+        </div>
+        <div class="text-center lg:text-left">
+         <p class="text-2xl font-black text-teal-400">100%</p>
+         <p class="opacity-80">Satisfacción garantizada</p>
+        </div>
        </div>
       </div>
      </div>
@@ -238,7 +240,7 @@
      <div class="text-center mb-12 fade-in-up">
       <p class="inline-flex items-center gap-2 text-xs font-semibold tracking-[0.3em] uppercase text-teal-300 bg-slate-800/70 rounded-full px-4 py-1.5 border border-teal-400/40 mb-4"><span>Servicios profesionales</span></p>
       <h2 id="servicesTitle" class="text-4xl md:text-5xl font-black tracking-tight leading-tight mb-4">Todo lo que necesitas para tu piscina</h2>
-      <p class="text-lg text-slate-300 max-w-2xl mx-auto">Desde el diseño inicial hasta el mantenimiento continuo, te acompa��amos en cada etapa.</p>
+      <p class="text-lg text-slate-300 max-w-2xl mx-auto">Desde el diseño inicial hasta el mantenimiento continuo, te acompañamos en cada etapa.</p>
      </div>
      <div class="grid md:grid-cols-2 lg:grid-cols-3 gap-6"><!-- Servicio 1 -->
       <article class="rounded-3xl bg-slate-800/60 backdrop-blur-sm border border-slate-700 overflow-hidden hover:border-teal-400/60 transition-all soft-shadow">
@@ -444,7 +446,7 @@
     </header>
     <div class="px-5 py-4 space-y-3 max-h-96 overflow-y-auto">
      <p class="text-xs text-slate-400">Elige una opción rápida o escribe tu consulta:</p>
-     <div class="space-y-2"><button type="button" class="w-full text-left rounded-2xl bg-slate-800 border border-slate-700 px-4 py-2.5 hover:border-teal-400 transition-colors text-xs quick-question-btn" data-text="Hola, quiero cotizar una piscina nueva."> 💧 Cotizar piscina nueva </button> <button type="button" class="w-full text-left rounded-2xl bg-slate-800 border border-slate-700 px-4 py-2.5 hover:border-teal-400 transition-colors text-xs quick-question-btn" data-text="Hola, quiero remodelar mi piscina existente."> 🔧 Remodelar piscina existente </button> <button type="button" class="w-full text-left rounded-2xl bg-slate-800 border border-slate-700 px-4 py-2.5 hover:border-teal-400 transition-colors text-xs quick-question-btn" data-text="Hola, necesito un plan de mantenimiento."> ✨ Plan de mantenimiento </button>
+     <div class="space-y-2"><button type="button" class="w-full text-left rounded-2xl bg-slate-800 border border-slate-700 px-4 py-2.5 hover:border-teal-400 transition-colors text-xs quick-question-btn" data-text="Hola, quiero cotizar una piscina nueva."> 🏊 Cotizar piscina nueva </button> <button type="button" class="w-full text-left rounded-2xl bg-slate-800 border border-slate-700 px-4 py-2.5 hover:border-teal-400 transition-colors text-xs quick-question-btn" data-text="Hola, quiero remodelar mi piscina existente."> 🔧 Remodelar piscina existente </button> <button type="button" class="w-full text-left rounded-2xl bg-slate-800 border border-slate-700 px-4 py-2.5 hover:border-teal-400 transition-colors text-xs quick-question-btn" data-text="Hola, necesito un plan de mantenimiento."> ✨ Plan de mantenimiento </button>
      </div>
      <form id="whatsappQuickForm" class="space-y-3 pt-2">
       <div><label for="w_name" class="block text-xs font-semibold mb-1 text-slate-300">Nombre</label> <input id="w_name" name="w_name" type="text" class="w-full rounded-2xl bg-slate-800 border border-slate-700 px-3 py-2 text-xs text-white placeholder:text-slate-500 focus:border-teal-400 focus:ring-0">
@@ -799,5 +801,5 @@
       });
     })();
   </script>
- <script>(function(){function c(){var b=a.contentDocument||a.contentWindow.document;if(b){var d=b.createElement('script');d.innerHTML="window.__CF$cv$params={r:'9a7639c8f76d7ade',t:'MTc2NDYzMDI4OC4wMDAwMDA='};var a=document.createElement('script');a.nonce='';a.src='/cdn-cgi/challenge-platform/scripts/jsd/main.js';document.getElementsByTagName('head')[0].appendChild(a);";b.getElementsByTagName('head')[0].appendChild(d)}}if(document.body){var a=document.createElement('iframe');a.height=1;a.width=1;a.style.position='absolute';a.style.top=0;a.style.left=0;a.style.border='none';a.style.visibility='hidden';document.body.appendChild(a);if('loading'!==document.readyState)c();else if(window.addEventListener)document.addEventListener('DOMContentLoaded',c);else{var e=document.onreadystatechange||function(){};document.onreadystatechange=function(b){e(b);'loading'!==document.readyState&&(document.onreadystatechange=e,c())}}}})();</script></body>
+ <script>(function(){function c(){var b=a.contentDocument||a.contentWindow.document;if(b){var d=b.createElement('script');d.innerHTML="window.__CF$cv$params={r:'9a764d2665a4e6c4',t:'MTc2NDYzMTA4Mi4wMDAwMDA='};var a=document.createElement('script');a.nonce='';a.src='/cdn-cgi/challenge-platform/scripts/jsd/main.js';document.getElementsByTagName('head')[0].appendChild(a);";b.getElementsByTagName('head')[0].appendChild(d)}}if(document.body){var a=document.createElement('iframe');a.height=1;a.width=1;a.style.position='absolute';a.style.top=0;a.style.left=0;a.style.border='none';a.style.visibility='hidden';document.body.appendChild(a);if('loading'!==document.readyState)c();else if(window.addEventListener)document.addEventListener('DOMContentLoaded',c);else{var e=document.onreadystatechange||function(){};document.onreadystatechange=function(b){e(b);'loading'!==document.readyState&&(document.onreadystatechange=e,c())}}}})();</script></body>
 </html>
