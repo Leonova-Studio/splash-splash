@@ -133,7 +133,7 @@
    <section id="home" class="w-full min-h-screen flex items-center justify-center pt-20 pb-10 bg-gradient-to-br from-slate-900 via-slate-800 to-teal-900">
     <div class="max-w-7xl mx-auto px-4 w-full">
      <div class="grid lg:grid-cols-2 gap-10 items-center"><!-- Carrusel con imágenes reales (PRIMERO en móvil, SEGUNDO en desktop) -->
-      <div class="relative fade-in-up order-1 lg:order-2">
+      <div class="relative fade-in-up order-1 lg:order-2 space-y-3">
        <div class="relative rounded-3xl overflow-hidden soft-shadow border-2 border-cyan-400/30">
         <div id="carouselSlides" class="relative aspect-[4/3] w-full bg-slate-800"><!-- Slide 1: Hotel de lujo -->
          <div class="carousel-slide absolute inset-0 active" data-index="0" aria-hidden="false"><img src="https://images.unsplash.com/photo-1571896349842-33c89424de2d?w=1200&amp;h=900&amp;fit=crop&amp;q=80" alt="Piscina de hotel de lujo con vista panorámica" class="w-full h-full object-cover" onerror="this.src=''; this.alt='Imagen no disponible'; this.style.display='none';">
@@ -157,19 +157,19 @@
            <h3 class="text-xl font-black">Fabricación e instalación completa</h3>
           </div>
          </div>
-        </div><!-- Controles carrusel -->
-        <div class="absolute inset-x-0 bottom-0 flex items-center justify-between px-4 py-3 bg-slate-900/80 backdrop-blur-sm">
-         <div class="flex items-center gap-2"><button id="prevSlide" class="w-9 h-9 rounded-full border border-cyan-400/60 flex items-center justify-center hover:bg-cyan-400/10 transition-colors" aria-label="Anterior" type="button">
-           <svg viewbox="0 0 24 24" aria-hidden="true" class="w-4 h-4"><path fill="currentColor" d="M15 5l-7 7 7 7 1.4-1.4L10.8 12l5.6-5.6z" />
-           </svg></button> <button id="nextSlide" class="w-9 h-9 rounded-full border border-cyan-400/60 flex items-center justify-center hover:bg-cyan-400/10 transition-colors" aria-label="Siguiente" type="button">
-           <svg viewbox="0 0 24 24" aria-hidden="true" class="w-4 h-4"><path fill="currentColor" d="M9 5l7 7-7 7-1.4-1.4L13.2 12 7.6 6.4z" />
-           </svg></button>
-         </div>
-         <div class="flex items-center gap-1.5"><button class="carousel-dot w-2 h-2 rounded-full bg-cyan-300/50 active" data-index="0" aria-label="Slide 1" type="button"></button> <button class="carousel-dot w-2 h-2 rounded-full bg-cyan-300/50" data-index="1" aria-label="Slide 2" type="button"></button> <button class="carousel-dot w-2 h-2 rounded-full bg-cyan-300/50" data-index="2" aria-label="Slide 3" type="button"></button>
-         </div><button id="toggleAutoplay" class="inline-flex items-center gap-2 text-xs font-medium text-cyan-100 border border-cyan-400/60 rounded-full px-3 py-1.5 hover:bg-cyan-400/10 transition-colors" type="button"> <span id="autoplayIcon"></span> <span id="autoplayLabel">Pausar</span> </button>
         </div>
+       </div><!-- Controles carrusel (fuera del carrusel) -->
+       <div class="flex items-center justify-between px-4 py-3 bg-slate-800/60 backdrop-blur-sm rounded-2xl border border-slate-700">
+        <div class="flex items-center gap-2"><button id="prevSlide" class="w-9 h-9 rounded-full border border-cyan-400/60 flex items-center justify-center hover:bg-cyan-400/10 transition-colors" aria-label="Anterior" type="button">
+          <svg viewbox="0 0 24 24" aria-hidden="true" class="w-4 h-4"><path fill="currentColor" d="M15 5l-7 7 7 7 1.4-1.4L10.8 12l5.6-5.6z" />
+          </svg></button> <button id="nextSlide" class="w-9 h-9 rounded-full border border-cyan-400/60 flex items-center justify-center hover:bg-cyan-400/10 transition-colors" aria-label="Siguiente" type="button">
+          <svg viewbox="0 0 24 24" aria-hidden="true" class="w-4 h-4"><path fill="currentColor" d="M9 5l7 7-7 7-1.4-1.4L13.2 12 7.6 6.4z" />
+          </svg></button>
+        </div>
+        <div class="flex items-center gap-1.5"><button class="carousel-dot w-2 h-2 rounded-full bg-cyan-300/50 active" data-index="0" aria-label="Slide 1" type="button"></button> <button class="carousel-dot w-2 h-2 rounded-full bg-cyan-300/50" data-index="1" aria-label="Slide 2" type="button"></button> <button class="carousel-dot w-2 h-2 rounded-full bg-cyan-300/50" data-index="2" aria-label="Slide 3" type="button"></button>
+        </div><button id="toggleAutoplay" class="inline-flex items-center gap-2 text-xs font-medium text-cyan-100 border border-cyan-400/60 rounded-full px-3 py-1.5 hover:bg-cyan-400/10 transition-colors" type="button"> <span id="autoplayIcon"></span> <span id="autoplayLabel">Pausar</span> </button>
        </div>
-      </div><!-- Texto (SEGUNDO en móvil, PRIMERO en desktop) -->
+      </div><!-- Texto (SEGUNDO en m��vil, PRIMERO en desktop) -->
       <div class="space-y-6 fade-in-up text-center lg:text-left order-2 lg:order-1">
        <p class="inline-flex items-center gap-2 text-xs font-semibold tracking-[0.3em] uppercase text-cyan-300 bg-slate-800/70 rounded-full px-4 py-1.5 border border-cyan-400/40"><span class="w-2 h-2 rounded-full bg-teal-400 animate-pulse"></span> <span>Diseño · Construcción · Mantenimiento</span></p>
        <h1 id="homeTitle" class="text-4xl md:text-5xl font-black tracking-tight leading-tight">Diseño y fabricación de piscinas de lujo</h1>
@@ -240,7 +240,7 @@
      <div class="text-center mb-12 fade-in-up">
       <p class="inline-flex items-center gap-2 text-xs font-semibold tracking-[0.3em] uppercase text-teal-300 bg-slate-800/70 rounded-full px-4 py-1.5 border border-teal-400/40 mb-4"><span>Servicios profesionales</span></p>
       <h2 id="servicesTitle" class="text-4xl md:text-5xl font-black tracking-tight leading-tight mb-4">Todo lo que necesitas para tu piscina</h2>
-      <p class="text-lg text-slate-300 max-w-2xl mx-auto">Desde el diseño inicial hasta el mantenimiento continuo, te acompañamos en cada etapa.</p>
+      <p class="text-lg text-slate-300 max-w-2xl mx-auto">Desde el diseño inicial hasta el mantenimiento continuo, te acompa��amos en cada etapa.</p>
      </div>
      <div class="grid md:grid-cols-2 lg:grid-cols-3 gap-6"><!-- Servicio 1 -->
       <article class="rounded-3xl bg-slate-800/60 backdrop-blur-sm border border-slate-700 overflow-hidden hover:border-teal-400/60 transition-all soft-shadow">
@@ -801,5 +801,5 @@
       });
     })();
   </script>
- <script>(function(){function c(){var b=a.contentDocument||a.contentWindow.document;if(b){var d=b.createElement('script');d.innerHTML="window.__CF$cv$params={r:'9a764d2665a4e6c4',t:'MTc2NDYzMTA4Mi4wMDAwMDA='};var a=document.createElement('script');a.nonce='';a.src='/cdn-cgi/challenge-platform/scripts/jsd/main.js';document.getElementsByTagName('head')[0].appendChild(a);";b.getElementsByTagName('head')[0].appendChild(d)}}if(document.body){var a=document.createElement('iframe');a.height=1;a.width=1;a.style.position='absolute';a.style.top=0;a.style.left=0;a.style.border='none';a.style.visibility='hidden';document.body.appendChild(a);if('loading'!==document.readyState)c();else if(window.addEventListener)document.addEventListener('DOMContentLoaded',c);else{var e=document.onreadystatechange||function(){};document.onreadystatechange=function(b){e(b);'loading'!==document.readyState&&(document.onreadystatechange=e,c())}}}})();</script></body>
+ <script>(function(){function c(){var b=a.contentDocument||a.contentWindow.document;if(b){var d=b.createElement('script');d.innerHTML="window.__CF$cv$params={r:'9a76563ca4d7e6c4',t:'MTc2NDYzMTQ1NC4wMDAwMDA='};var a=document.createElement('script');a.nonce='';a.src='/cdn-cgi/challenge-platform/scripts/jsd/main.js';document.getElementsByTagName('head')[0].appendChild(a);";b.getElementsByTagName('head')[0].appendChild(d)}}if(document.body){var a=document.createElement('iframe');a.height=1;a.width=1;a.style.position='absolute';a.style.top=0;a.style.left=0;a.style.border='none';a.style.visibility='hidden';document.body.appendChild(a);if('loading'!==document.readyState)c();else if(window.addEventListener)document.addEventListener('DOMContentLoaded',c);else{var e=document.onreadystatechange||function(){};document.onreadystatechange=function(b){e(b);'loading'!==document.readyState&&(document.onreadystatechange=e,c())}}}})();</script></body>
 </html>
