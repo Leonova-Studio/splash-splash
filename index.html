@@ -1,0 +1,805 @@
+<!doctype html>
+<html lang="es">
+ <head>
+  <meta charset="UTF-8">
+  <title>SPLASH SPLASH!!!! | Piscinas Premium</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <script src="https://cdn.tailwindcss.com"></script>
+  <script src="/_sdk/element_sdk.js"></script>
+  <style>
+    body {
+      box-sizing: border-box;
+    }
+
+    html, body {
+      height: 100%;
+      width: 100%;
+      margin: 0;
+      padding: 0;
+      scroll-behavior: smooth;
+    }
+
+    body {
+      font-family: "Inter", system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+    }
+
+    /* Carrusel */
+    .carousel-slide {
+      opacity: 0;
+      transition: opacity 1s ease-in-out;
+    }
+    .carousel-slide.active {
+      opacity: 1;
+    }
+
+    .carousel-dot {
+      transition: transform 0.2s ease, background-color 0.2s ease;
+    }
+    .carousel-dot.active {
+      transform: scale(1.3);
+    }
+
+    /* Sombras */
+    .soft-shadow {
+      box-shadow: 0 20px 50px rgba(0, 0, 0, 0.4);
+    }
+
+    /* Focus visible */
+    button:focus-visible,
+    a:focus-visible,
+    input:focus-visible,
+    textarea:focus-visible,
+    select:focus-visible {
+      outline: 2px solid #facc15;
+      outline-offset: 2px;
+    }
+
+    /* Layout */
+    .app-wrapper {
+      width: 100%;
+      min-height: 100%;
+    }
+
+    /* Parallax suave */
+    .parallax-bg {
+      background-attachment: fixed;
+      background-position: center;
+      background-repeat: no-repeat;
+      background-size: cover;
+    }
+
+    /* Overlay gradiente */
+    .overlay-gradient {
+      background: linear-gradient(135deg, rgba(8, 47, 73, 0.92) 0%, rgba(6, 78, 59, 0.88) 100%);
+    }
+
+    /* Animación fade-in */
+    @keyframes fadeInUp {
+      from {
+        opacity: 0;
+        transform: translateY(30px);
+      }
+      to {
+        opacity: 1;
+        transform: translateY(0);
+      }
+    }
+
+    .fade-in-up {
+      animation: fadeInUp 0.8s ease-out forwards;
+    }
+  </style>
+  <style>@view-transition { navigation: auto; }</style>
+  <script src="/_sdk/data_sdk.js" type="text/javascript"></script>
+ </head>
+ <body class="app-wrapper bg-slate-900 text-white"><!-- HEADER FIJO -->
+  <header class="w-full fixed top-0 left-0 z-50 bg-slate-900/95 backdrop-blur-md border-b border-slate-700/50">
+   <nav class="w-full">
+    <div class="max-w-7xl mx-auto px-4 py-3 flex items-center justify-between"><!-- Logo -->
+     <div class="flex items-center gap-3">
+      <div class="w-11 h-11 rounded-full bg-gradient-to-br from-cyan-400 to-teal-300 flex items-center justify-center soft-shadow">
+       <svg viewbox="0 0 48 48" aria-hidden="true" class="w-7 h-7 text-slate-900"><path fill="currentColor" d="M24 4C19 12 12 19 12 28c0 7 5.4 12 12 12s12-5 12-12C36 19 29 12 24 4zM18 28c0 3.3 2.7 6 6 6s6-2.7 6-6c0-2.5-1.9-5.2-3.8-8.1-.8-1.1-2.5-1.1-3.3 0C19.9 22.8 18 25.5 18 28z" />
+       </svg>
+      </div>
+      <div class="leading-tight"><span class="block text-xs tracking-[0.25em] uppercase text-cyan-300">Piscinas</span> <span class="block font-bold text-lg tracking-wide">SPLASH SPLASH!!!!</span>
+      </div>
+     </div><!-- Menú desktop -->
+     <div class="hidden md:flex items-center gap-6"><a href="#home" class="text-sm font-medium hover:text-cyan-300 transition-colors">Home</a> <a href="#about" class="text-sm font-medium hover:text-cyan-300 transition-colors">About</a> <a href="#services" class="text-sm font-medium hover:text-cyan-300 transition-colors">Servicios</a> <a href="#contact" class="text-sm font-medium hover:text-cyan-300 transition-colors">Contact</a> <!-- Redes -->
+      <div class="flex items-center gap-2 ml-2"><a href="https://facebook.com" target="_blank" rel="noopener noreferrer" aria-label="Facebook" class="w-8 h-8 rounded-full border border-cyan-400/40 flex items-center justify-center hover:bg-cyan-400/10 transition-colors">
+        <svg viewbox="0 0 24 24" aria-hidden="true" class="w-3.5 h-3.5"><path fill="currentColor" d="M13 22v-8h3l1-4h-4V7.5c0-1.1.4-1.5 1.5-1.5H17V2.1C16.3 2 15.3 2 14.2 2 11.5 2 9.7 3.6 9.7 7v3H7v4h2.7v8h3.3z" />
+        </svg></a> <a href="https://instagram.com" target="_blank" rel="noopener noreferrer" aria-label="Instagram" class="w-8 h-8 rounded-full border border-cyan-400/40 flex items-center justify-center hover:bg-cyan-400/10 transition-colors">
+        <svg viewbox="0 0 24 24" aria-hidden="true" class="w-3.5 h-3.5"><path fill="currentColor" d="M7 2C4.2 2 2 4.2 2 7v10c0 2.8 2.2 5 5 5h10c2.8 0 5-2.2 5-5V7c0-2.8-2.2-5-5-5H7zm0 2h10c1.7 0 3 1.3 3 3v10c0 1.7-1.3 3-3 3H7c-1.7 0-3-1.3-3-3V7c0-1.7 1.3-3 3-3zm5 2.5A5.5 5.5 0 0 0 6.5 12 5.5 5.5 0 0 0 12 17.5 5.5 5.5 0 0 0 17.5 12 5.5 5.5 0 0 0 12 6.5zm0 2A3.5 3.5 0 0 1 15.5 12 3.5 3.5 0 0 1 12 15.5 3.5 3.5 0 0 1 8.5 12 3.5 3.5 0 0 1 12 8.5zM18 5.2a1.3 1.3 0 1 0 0 2.6 1.3 1.3 0 0 0 0-2.6z" />
+        </svg></a> <a href="https://tiktok.com" target="_blank" rel="noopener noreferrer" aria-label="Tiktok" class="w-8 h-8 rounded-full border border-cyan-400/40 flex items-center justify-center hover:bg-cyan-400/10 transition-colors">
+        <svg viewbox="0 0 24 24" aria-hidden="true" class="w-3.5 h-3.5"><path fill="currentColor" d="M17.3 5.1c.7.8 1.6 1.4 2.7 1.7V4.3c-.5-.1-.9-.3-1.4-.5-.5-.3-.9-.6-1.3-1-.5-.5-.8-1-1-1.7h-3.1v14.2c0 1-.8 1.8-1.8 1.8s-1.8-.8-1.8-1.8S10.4 13 11.4 13c.3 0 .7.1 1 .2V9.9c-.3 0-.7-.1-1-.1-2.9 0-5.2 2.4-5.2 5.3s2.3 5.3 5.2 5.3 5.2-2.4 5.2-5.3V7.7c.7.7 1.5 1.2 2.4 1.4V6.2c-1-.2-1.9-.6-2.7-1.1z" />
+        </svg></a>
+      </div><a href="https://wa.me/18683253395?text=Hola%20SPLASH%20SPLASH!!!!%2C%20quiero%20informaci%C3%B3n." target="_blank" rel="noopener noreferrer" class="inline-flex items-center gap-2 bg-teal-400 text-slate-900 font-semibold text-xs px-4 py-2 rounded-full hover:bg-teal-300 transition-colors"> <span>WhatsApp</span> </a>
+     </div><!-- Botón menú móvil --> <button id="mobileMenuToggle" class="md:hidden w-9 h-9 rounded-full border border-cyan-400/40 flex items-center justify-center hover:bg-cyan-400/10 transition-colors" aria-label="Abrir menú" type="button">
+      <svg id="iconMenu" viewbox="0 0 24 24" aria-hidden="true" class="w-5 h-5"><path fill="currentColor" d="M4 7h16v2H4V7zm0 5h16v2H4v-2zm0 5h16v2H4v-2z" />
+      </svg>
+      <svg id="iconClose" viewbox="0 0 24 24" aria-hidden="true" class="w-5 h-5 hidden"><path fill="currentColor" d="M6.2 4.8L4.8 6.2 10.6 12l-5.8 5.8 1.4 1.4L12 13.4l5.8 5.8 1.4-1.4L13.4 12l5.8-5.8-1.4-1.4L12 10.6 6.2 4.8z" />
+      </svg></button>
+    </div><!-- Menú móvil -->
+    <div id="mobileMenu" class="md:hidden max-w-7xl mx-auto px-4 pb-3 space-y-2 hidden"><a href="#home" class="block text-sm font-medium py-1 hover:text-cyan-300 transition-colors">Home</a> <a href="#about" class="block text-sm font-medium py-1 hover:text-cyan-300 transition-colors">About</a> <a href="#services" class="block text-sm font-medium py-1 hover:text-cyan-300 transition-colors">Servicios</a> <a href="#contact" class="block text-sm font-medium py-1 hover:text-cyan-300 transition-colors">Contact</a>
+     <div class="flex items-center gap-2 pt-1"><a href="https://facebook.com" target="_blank" rel="noopener noreferrer" aria-label="Facebook" class="w-8 h-8 rounded-full border border-cyan-400/40 flex items-center justify-center hover:bg-cyan-400/10 transition-colors">
+       <svg viewbox="0 0 24 24" aria-hidden="true" class="w-3.5 h-3.5"><path fill="currentColor" d="M13 22v-8h3l1-4h-4V7.5c0-1.1.4-1.5 1.5-1.5H17V2.1C16.3 2 15.3 2 14.2 2 11.5 2 9.7 3.6 9.7 7v3H7v4h2.7v8h3.3z" />
+       </svg></a> <a href="https://instagram.com" target="_blank" rel="noopener noreferrer" aria-label="Instagram" class="w-8 h-8 rounded-full border border-cyan-400/40 flex items-center justify-center hover:bg-cyan-400/10 transition-colors">
+       <svg viewbox="0 0 24 24" aria-hidden="true" class="w-3.5 h-3.5"><path fill="currentColor" d="M7 2C4.2 2 2 4.2 2 7v10c0 2.8 2.2 5 5 5h10c2.8 0 5-2.2 5-5V7c0-2.8-2.2-5-5-5H7zm0 2h10c1.7 0 3 1.3 3 3v10c0 1.7-1.3 3-3 3H7c-1.7 0-3-1.3-3-3V7c0-1.7 1.3-3 3-3zm5 2.5A5.5 5.5 0 0 0 6.5 12 5.5 5.5 0 0 0 12 17.5 5.5 5.5 0 0 0 17.5 12 5.5 5.5 0 0 0 12 6.5zm0 2A3.5 3.5 0 0 1 15.5 12 3.5 3.5 0 0 1 12 15.5 3.5 3.5 0 0 1 8.5 12 3.5 3.5 0 0 1 12 8.5zM18 5.2a1.3 1.3 0 1 0 0 2.6 1.3 1.3 0 0 0 0-2.6z" />
+       </svg></a> <a href="https://tiktok.com" target="_blank" rel="noopener noreferrer" aria-label="Tiktok" class="w-8 h-8 rounded-full border border-cyan-400/40 flex items-center justify-center hover:bg-cyan-400/10 transition-colors">
+       <svg viewbox="0 0 24 24" aria-hidden="true" class="w-3.5 h-3.5"><path fill="currentColor" d="M17.3 5.1c.7.8 1.6 1.4 2.7 1.7V4.3c-.5-.1-.9-.3-1.4-.5-.5-.3-.9-.6-1.3-1-.5-.5-.8-1-1-1.7h-3.1v14.2c0 1-.8 1.8-1.8 1.8s-1.8-.8-1.8-1.8S10.4 13 11.4 13c.3 0 .7.1 1 .2V9.9c-.3 0-.7-.1-1-.1-2.9 0-5.2 2.4-5.2 5.3s2.3 5.3 5.2 5.3 5.2-2.4 5.2-5.3V7.7c.7.7 1.5 1.2 2.4 1.4V6.2c-1-.2-1.9-.6-2.7-1.1z" />
+       </svg></a>
+     </div><a href="https://wa.me/18683253395?text=Hola%20SPLASH%20SPLASH!!!!%2C%20quiero%20informaci%C3%B3n." target="_blank" rel="noopener noreferrer" class="w-full inline-flex items-center justify-center gap-2 bg-teal-400 text-slate-900 font-semibold text-xs px-4 py-2 rounded-full hover:bg-teal-300 transition-colors"> <span>WhatsApp directo</span> </a>
+    </div>
+   </nav>
+  </header>
+  <main class="w-full"><!-- ============================================ --> <!-- LANDING 1: HOME con carrusel de imágenes reales --> <!-- ============================================ -->
+   <section id="home" class="w-full min-h-screen flex items-center justify-center pt-20 pb-10 bg-gradient-to-br from-slate-900 via-slate-800 to-teal-900">
+    <div class="max-w-7xl mx-auto px-4 w-full grid lg:grid-cols-2 gap-10 items-center"><!-- Texto -->
+     <div class="space-y-6 fade-in-up text-center lg:text-left">
+      <p class="inline-flex items-center gap-2 text-xs font-semibold tracking-[0.3em] uppercase text-cyan-300 bg-slate-800/70 rounded-full px-4 py-1.5 border border-cyan-400/40"><span class="w-2 h-2 rounded-full bg-teal-400 animate-pulse"></span> <span>Diseño · Construcción · Mantenimiento</span></p>
+      <h1 id="homeTitle" class="text-4xl md:text-5xl font-black tracking-tight leading-tight">Piscinas de lujo que transforman tu hogar</h1>
+      <p id="homeSubtitle" class="text-base md:text-lg text-slate-300 max-w-prose mx-auto lg:mx-0">Creamos experiencias acuáticas únicas con diseño arquitectónico, construcción premium y mantenimiento profesional. Más de 10 años convirtiendo espacios en paraísos personales.</p>
+      <div class="flex flex-col sm:flex-row gap-3 justify-center lg:justify-start"><a href="https://wa.me/18683253395?text=Hola%20SPLASH%20SPLASH!!!!%2C%20quiero%20cotizar%20mi%20piscina." target="_blank" rel="noopener noreferrer" class="inline-flex items-center justify-center gap-2 bg-teal-400 text-slate-900 font-bold text-sm px-6 py-3 rounded-full hover:bg-teal-300 transition-all soft-shadow"> <span>Cotiza tu piscina ahora</span>
+        <svg viewbox="0 0 24 24" aria-hidden="true" class="w-4 h-4"><path fill="currentColor" d="M5 12h11.2l-4.6 4.6 1.4 1.4L20 12l-7-7-1.4 1.4 4.6 4.6H5z" />
+        </svg></a> <a href="#services" class="inline-flex items-center justify-center gap-2 border-2 border-cyan-400/60 text-cyan-100 font-bold text-sm px-6 py-3 rounded-full hover:bg-cyan-400/10 transition-colors"> <span>Ver servicios</span> </a>
+      </div>
+      <div class="grid grid-cols-3 gap-4 pt-4 text-xs text-slate-300">
+       <div class="text-center lg:text-left">
+        <p class="text-2xl font-black text-teal-400">+120</p>
+        <p class="opacity-80">Proyectos entregados</p>
+       </div>
+       <div class="text-center lg:text-left">
+        <p class="text-2xl font-black text-teal-400">10+</p>
+        <p class="opacity-80">Años de experiencia</p>
+       </div>
+       <div class="text-center lg:text-left">
+        <p class="text-2xl font-black text-teal-400">100%</p>
+        <p class="opacity-80">Clientes satisfechos</p>
+       </div>
+      </div>
+     </div><!-- Carrusel con imágenes reales -->
+     <div class="relative fade-in-up">
+      <div class="relative rounded-3xl overflow-hidden soft-shadow border-2 border-cyan-400/30">
+       <div id="carouselSlides" class="relative aspect-[4/3] w-full bg-slate-800"><!-- Slide 1: Piscina residencial moderna -->
+        <div class="carousel-slide absolute inset-0 active" data-index="0" aria-hidden="false"><img src="https://images.unsplash.com/photo-1576610616656-d3aa5d1f4534?w=1200&amp;h=900&amp;fit=crop&amp;q=80" alt="Piscina residencial moderna con iluminación nocturna" class="w-full h-full object-cover" onerror="this.src=''; this.alt='Imagen no disponible'; this.style.display='none';">
+         <div class="absolute inset-0 bg-gradient-to-t from-slate-900/80 via-transparent to-transparent"></div>
+         <div class="absolute bottom-0 left-0 right-0 p-6 text-white">
+          <p class="text-xs font-semibold tracking-[0.25em] uppercase text-cyan-300 mb-1">Piscinas residenciales</p>
+          <h3 class="text-xl font-black">Diseño moderno con iluminación LED</h3>
+         </div>
+        </div><!-- Slide 2: Piscina infinity -->
+        <div class="carousel-slide absolute inset-0" data-index="1" aria-hidden="true"><img src="https://images.unsplash.com/photo-1566073771259-6a8506099945?w=1200&amp;h=900&amp;fit=crop&amp;q=80" alt="Piscina infinity con vista panorámica" class="w-full h-full object-cover" onerror="this.src=''; this.alt='Imagen no disponible'; this.style.display='none';">
+         <div class="absolute inset-0 bg-gradient-to-t from-slate-900/80 via-transparent to-transparent"></div>
+         <div class="absolute bottom-0 left-0 right-0 p-6 text-white">
+          <p class="text-xs font-semibold tracking-[0.25em] uppercase text-cyan-300 mb-1">Piscinas infinity</p>
+          <h3 class="text-xl font-black">Borde infinito con vistas espectaculares</h3>
+         </div>
+        </div><!-- Slide 3: Piscina con deck -->
+        <div class="carousel-slide absolute inset-0" data-index="2" aria-hidden="true"><img src="https://images.unsplash.com/photo-1582268611958-ebfd161ef9cf?w=1200&amp;h=900&amp;fit=crop&amp;q=80" alt="Piscina con deck de madera y área lounge" class="w-full h-full object-cover" onerror="this.src=''; this.alt='Imagen no disponible'; this.style.display='none';">
+         <div class="absolute inset-0 bg-gradient-to-t from-slate-900/80 via-transparent to-transparent"></div>
+         <div class="absolute bottom-0 left-0 right-0 p-6 text-white">
+          <p class="text-xs font-semibold tracking-[0.25em] uppercase text-cyan-300 mb-1">Áreas completas</p>
+          <h3 class="text-xl font-black">Deck, lounge y zona de descanso</h3>
+         </div>
+        </div>
+       </div><!-- Controles carrusel -->
+       <div class="absolute inset-x-0 bottom-0 flex items-center justify-between px-4 py-3 bg-slate-900/80 backdrop-blur-sm">
+        <div class="flex items-center gap-2"><button id="prevSlide" class="w-9 h-9 rounded-full border border-cyan-400/60 flex items-center justify-center hover:bg-cyan-400/10 transition-colors" aria-label="Anterior" type="button">
+          <svg viewbox="0 0 24 24" aria-hidden="true" class="w-4 h-4"><path fill="currentColor" d="M15 5l-7 7 7 7 1.4-1.4L10.8 12l5.6-5.6z" />
+          </svg></button> <button id="nextSlide" class="w-9 h-9 rounded-full border border-cyan-400/60 flex items-center justify-center hover:bg-cyan-400/10 transition-colors" aria-label="Siguiente" type="button">
+          <svg viewbox="0 0 24 24" aria-hidden="true" class="w-4 h-4"><path fill="currentColor" d="M9 5l7 7-7 7-1.4-1.4L13.2 12 7.6 6.4z" />
+          </svg></button>
+        </div>
+        <div class="flex items-center gap-1.5"><button class="carousel-dot w-2 h-2 rounded-full bg-cyan-300/50 active" data-index="0" aria-label="Slide 1" type="button"></button> <button class="carousel-dot w-2 h-2 rounded-full bg-cyan-300/50" data-index="1" aria-label="Slide 2" type="button"></button> <button class="carousel-dot w-2 h-2 rounded-full bg-cyan-300/50" data-index="2" aria-label="Slide 3" type="button"></button>
+        </div><button id="toggleAutoplay" class="inline-flex items-center gap-2 text-xs font-medium text-cyan-100 border border-cyan-400/60 rounded-full px-3 py-1.5 hover:bg-cyan-400/10 transition-colors" type="button"> <span id="autoplayIcon"></span> <span id="autoplayLabel">Pausar</span> </button>
+       </div>
+      </div>
+     </div>
+    </div>
+   </section><!-- ============================================ --> <!-- LANDING 2: ABOUT --> <!-- ============================================ -->
+   <section id="about" class="w-full min-h-screen flex items-center justify-center py-20 parallax-bg" style="background-image: url('https://images.unsplash.com/photo-1519046904884-53103b34b206?w=1920&amp;h=1080&amp;fit=crop&amp;q=80');">
+    <div class="overlay-gradient w-full min-h-screen flex items-center">
+     <div class="max-w-7xl mx-auto px-4 w-full">
+      <div class="max-w-4xl mx-auto text-center space-y-8 fade-in-up">
+       <p class="inline-flex items-center gap-2 text-xs font-semibold tracking-[0.3em] uppercase text-teal-300 bg-slate-800/70 rounded-full px-4 py-1.5 border border-teal-400/40"><span>Sobre nosotros</span></p>
+       <h2 id="aboutTitle" class="text-4xl md:text-5xl font-black tracking-tight leading-tight">¿Por qué elegir SPLASH SPLASH!!!!?</h2>
+       <p id="aboutDescription" class="text-lg md:text-xl text-slate-200 max-w-3xl mx-auto">Somos un equipo de arquitectos, ingenieros y especialistas en diseño acuático con más de una década transformando espacios exteriores en experiencias de lujo. Cada proyecto es único y refleja la personalidad de nuestros clientes.</p>
+       <div class="grid md:grid-cols-3 gap-6 pt-6">
+        <article class="rounded-3xl bg-slate-800/80 backdrop-blur-sm border border-slate-700 p-6 text-center hover:border-teal-400/60 transition-all">
+         <div class="w-16 h-16 rounded-full bg-gradient-to-br from-teal-400 to-cyan-300 flex items-center justify-center mx-auto mb-4">
+          <svg viewbox="0 0 24 24" aria-hidden="true" class="w-8 h-8 text-slate-900"><path fill="currentColor" d="M12 2L2 7v10c0 5.5 3.8 10.7 10 12 6.2-1.3 10-6.5 10-12V7l-10-5zm0 2.2l8 4v8.8c0 4.4-3.1 8.6-8 9.8-4.9-1.2-8-5.4-8-9.8V8.2l8-4zM11 7v2h2V7h-2zm0 4v6h2v-6h-2z" />
+          </svg>
+         </div>
+         <h3 class="text-lg font-bold mb-2">Garantía total</h3>
+         <p class="text-sm text-slate-300">Respaldamos cada proyecto con garantía en construcción, equipos y acabados.</p>
+        </article>
+        <article class="rounded-3xl bg-slate-800/80 backdrop-blur-sm border border-slate-700 p-6 text-center hover:border-teal-400/60 transition-all">
+         <div class="w-16 h-16 rounded-full bg-gradient-to-br from-cyan-400 to-blue-300 flex items-center justify-center mx-auto mb-4">
+          <svg viewbox="0 0 24 24" aria-hidden="true" class="w-8 h-8 text-slate-900"><path fill="currentColor" d="M12 2C6.5 2 2 6.5 2 12s4.5 10 10 10 10-4.5 10-10S17.5 2 12 2zm0 2c4.4 0 8 3.6 8 8s-3.6 8-8 8-8-3.6-8-8 3.6-8 8-8zm-1 3v6.4l5.2 3.1.8-1.3-4-2.4V7h-2z" />
+          </svg>
+         </div>
+         <h3 class="text-lg font-bold mb-2">Entrega puntual</h3>
+         <p class="text-sm text-slate-300">Cumplimos con los tiempos acordados sin sacrificar calidad ni detalles.</p>
+        </article>
+        <article class="rounded-3xl bg-slate-800/80 backdrop-blur-sm border border-slate-700 p-6 text-center hover:border-teal-400/60 transition-all">
+         <div class="w-16 h-16 rounded-full bg-gradient-to-br from-emerald-400 to-teal-300 flex items-center justify-center mx-auto mb-4">
+          <svg viewbox="0 0 24 24" aria-hidden="true" class="w-8 h-8 text-slate-900"><path fill="currentColor" d="M12 2C6.5 2 2 6.5 2 12s4.5 10 10 10 10-4.5 10-10S17.5 2 12 2zm0 2c4.4 0 8 3.6 8 8s-3.6 8-8 8-8-3.6-8-8 3.6-8 8-8zm4.7 5.3L11 15l-3.7-3.7 1.4-1.4L11 12.2l4.3-4.3 1.4 1.4z" />
+          </svg>
+         </div>
+         <h3 class="text-lg font-bold mb-2">Equipos premium</h3>
+         <p class="text-sm text-slate-300">Trabajamos con marcas líderes en bombas, filtros, iluminación y automatización.</p>
+        </article>
+       </div>
+       <div class="pt-6"><a href="https://wa.me/18683253395?text=Hola%20SPLASH%20SPLASH!!!!%2C%20quiero%20saber%20m%C3%A1s%20sobre%20su%20experiencia." target="_blank" rel="noopener noreferrer" class="inline-flex items-center gap-2 bg-teal-400 text-slate-900 font-bold text-sm px-6 py-3 rounded-full hover:bg-teal-300 transition-all soft-shadow"> <span>Conoce más sobre nosotros</span> </a>
+       </div>
+      </div>
+     </div>
+    </div>
+   </section><!-- ============================================ --> <!-- LANDING 3: SERVICIOS --> <!-- ============================================ -->
+   <section id="services" class="w-full min-h-screen flex items-center justify-center py-20 bg-gradient-to-br from-teal-900 via-slate-800 to-slate-900">
+    <div class="max-w-7xl mx-auto px-4 w-full">
+     <div class="text-center mb-12 fade-in-up">
+      <p class="inline-flex items-center gap-2 text-xs font-semibold tracking-[0.3em] uppercase text-teal-300 bg-slate-800/70 rounded-full px-4 py-1.5 border border-teal-400/40 mb-4"><span>Servicios profesionales</span></p>
+      <h2 id="servicesTitle" class="text-4xl md:text-5xl font-black tracking-tight leading-tight mb-4">Todo lo que necesitas para tu piscina</h2>
+      <p class="text-lg text-slate-300 max-w-2xl mx-auto">Desde el diseño inicial hasta el mantenimiento continuo, te acompañamos en cada etapa.</p>
+     </div>
+     <div class="grid md:grid-cols-2 lg:grid-cols-3 gap-6"><!-- Servicio 1 -->
+      <article class="rounded-3xl bg-slate-800/60 backdrop-blur-sm border border-slate-700 overflow-hidden hover:border-teal-400/60 transition-all soft-shadow">
+       <div class="aspect-video w-full bg-gradient-to-br from-cyan-500 to-blue-600 relative overflow-hidden"><img src="https://images.unsplash.com/photo-1600585154340-be6161a56a0c?w=800&amp;h=600&amp;fit=crop&amp;q=80" alt="Diseño arquitectónico de piscinas" class="w-full h-full object-cover" onerror="this.style.display='none';">
+        <div class="absolute inset-0 bg-gradient-to-t from-slate-900/80 to-transparent"></div>
+        <div class="absolute top-3 right-3 bg-teal-400 text-slate-900 text-xs font-bold px-3 py-1 rounded-full">
+         01
+        </div>
+       </div>
+       <div class="p-6 space-y-3">
+        <h3 class="text-xl font-bold">Diseño &amp; Construcción</h3>
+        <p class="text-sm text-slate-300">Diseños arquitectónicos personalizados con renders 3D, planos estructurales y selección de acabados premium.</p>
+        <ul class="text-xs text-slate-400 space-y-1">
+         <li>• Piscinas residenciales y comerciales</li>
+         <li>• Infinity pools y bordes desbordantes</li>
+         <li>• Integración con paisajismo</li>
+        </ul><button type="button" class="inline-flex items-center gap-1 text-xs font-semibold text-teal-300 hover:text-teal-200 transition-colors service-whatsapp-btn" data-message="Hola SPLASH SPLASH!!!!, quiero información sobre diseño y construcción de piscinas."> <span>Más información</span>
+         <svg viewbox="0 0 24 24" aria-hidden="true" class="w-3 h-3"><path fill="currentColor" d="M5 12h11.2l-4.6 4.6 1.4 1.4L20 12l-7-7-1.4 1.4 4.6 4.6H5z" />
+         </svg></button>
+       </div>
+      </article><!-- Servicio 2 -->
+      <article class="rounded-3xl bg-slate-800/60 backdrop-blur-sm border border-slate-700 overflow-hidden hover:border-teal-400/60 transition-all soft-shadow">
+       <div class="aspect-video w-full bg-gradient-to-br from-teal-500 to-emerald-600 relative overflow-hidden"><img src="https://images.unsplash.com/photo-1600607687939-ce8a6c25118c?w=800&amp;h=600&amp;fit=crop&amp;q=80" alt="Remodelación de piscinas" class="w-full h-full object-cover" onerror="this.style.display='none';">
+        <div class="absolute inset-0 bg-gradient-to-t from-slate-900/80 to-transparent"></div>
+        <div class="absolute top-3 right-3 bg-teal-400 text-slate-900 text-xs font-bold px-3 py-1 rounded-full">
+         02
+        </div>
+       </div>
+       <div class="p-6 space-y-3">
+        <h3 class="text-xl font-bold">Remodelación</h3>
+        <p class="text-sm text-slate-300">Renovamos piscinas antiguas con nuevos revestimientos, iluminación LED, sistemas eficientes y detalles modernos.</p>
+        <ul class="text-xs text-slate-400 space-y-1">
+         <li>• Cambio de acabados y azulejos</li>
+         <li>• Actualización de equipos</li>
+         <li>• Cascadas y fuentes decorativas</li>
+        </ul><button type="button" class="inline-flex items-center gap-1 text-xs font-semibold text-teal-300 hover:text-teal-200 transition-colors service-whatsapp-btn" data-message="Hola SPLASH SPLASH!!!!, quiero remodelar una piscina existente."> <span>Enviar fotos por WhatsApp</span>
+         <svg viewbox="0 0 24 24" aria-hidden="true" class="w-3 h-3"><path fill="currentColor" d="M5 12h11.2l-4.6 4.6 1.4 1.4L20 12l-7-7-1.4 1.4 4.6 4.6H5z" />
+         </svg></button>
+       </div>
+      </article><!-- Servicio 3 -->
+      <article class="rounded-3xl bg-slate-800/60 backdrop-blur-sm border border-slate-700 overflow-hidden hover:border-teal-400/60 transition-all soft-shadow">
+       <div class="aspect-video w-full bg-gradient-to-br from-blue-500 to-cyan-600 relative overflow-hidden"><img src="https://images.unsplash.com/photo-1600566753190-17f0baa2a6c3?w=800&amp;h=600&amp;fit=crop&amp;q=80" alt="Mantenimiento de piscinas" class="w-full h-full object-cover" onerror="this.style.display='none';">
+        <div class="absolute inset-0 bg-gradient-to-t from-slate-900/80 to-transparent"></div>
+        <div class="absolute top-3 right-3 bg-teal-400 text-slate-900 text-xs font-bold px-3 py-1 rounded-full">
+         03
+        </div>
+       </div>
+       <div class="p-6 space-y-3">
+        <h3 class="text-xl font-bold">Mantenimiento</h3>
+        <p class="text-sm text-slate-300">Planes periódicos de limpieza, balance químico y revisión de equipos para que solo te preocupes por disfrutar.</p>
+        <ul class="text-xs text-slate-400 space-y-1">
+         <li>• Visitas programadas semanales/quincenales</li>
+         <li>• Control de pH, cloro y alcalinidad</li>
+         <li>• Reporte del estado de tu piscina</li>
+        </ul><button type="button" class="inline-flex items-center gap-1 text-xs font-semibold text-teal-300 hover:text-teal-200 transition-colors service-whatsapp-btn" data-message="Hola SPLASH SPLASH!!!!, quiero información sobre planes de mantenimiento."> <span>Consultar planes</span>
+         <svg viewbox="0 0 24 24" aria-hidden="true" class="w-3 h-3"><path fill="currentColor" d="M5 12h11.2l-4.6 4.6 1.4 1.4L20 12l-7-7-1.4 1.4 4.6 4.6H5z" />
+         </svg></button>
+       </div>
+      </article><!-- Servicio 4 -->
+      <article class="rounded-3xl bg-slate-800/60 backdrop-blur-sm border border-slate-700 overflow-hidden hover:border-teal-400/60 transition-all soft-shadow">
+       <div class="aspect-video w-full bg-gradient-to-br from-purple-500 to-pink-600 relative overflow-hidden"><img src="https://images.unsplash.com/photo-1600607687644-c7171b42498b?w=800&amp;h=600&amp;fit=crop&amp;q=80" alt="Iluminación LED para piscinas" class="w-full h-full object-cover" onerror="this.style.display='none';">
+        <div class="absolute inset-0 bg-gradient-to-t from-slate-900/80 to-transparent"></div>
+        <div class="absolute top-3 right-3 bg-teal-400 text-slate-900 text-xs font-bold px-3 py-1 rounded-full">
+         04
+        </div>
+       </div>
+       <div class="p-6 space-y-3">
+        <h3 class="text-xl font-bold">Iluminación LED</h3>
+        <p class="text-sm text-slate-300">Sistemas de iluminación RGB programables que transforman tu piscina en un espectáculo nocturno.</p>
+        <ul class="text-xs text-slate-400 space-y-1">
+         <li>• Luces LED sumergibles multicolor</li>
+         <li>• Control remoto y automatización</li>
+         <li>• Bajo consumo energético</li>
+        </ul><button type="button" class="inline-flex items-center gap-1 text-xs font-semibold text-teal-300 hover:text-teal-200 transition-colors service-whatsapp-btn" data-message="Hola SPLASH SPLASH!!!!, quiero información sobre iluminación LED."> <span>Ver opciones</span>
+         <svg viewbox="0 0 24 24" aria-hidden="true" class="w-3 h-3"><path fill="currentColor" d="M5 12h11.2l-4.6 4.6 1.4 1.4L20 12l-7-7-1.4 1.4 4.6 4.6H5z" />
+         </svg></button>
+       </div>
+      </article><!-- Servicio 5 -->
+      <article class="rounded-3xl bg-slate-800/60 backdrop-blur-sm border border-slate-700 overflow-hidden hover:border-teal-400/60 transition-all soft-shadow">
+       <div class="aspect-video w-full bg-gradient-to-br from-orange-500 to-red-600 relative overflow-hidden"><img src="https://images.unsplash.com/photo-1600607687920-4e2a09cf159d?w=800&amp;h=600&amp;fit=crop&amp;q=80" alt="Climatización de piscinas" class="w-full h-full object-cover" onerror="this.style.display='none';">
+        <div class="absolute inset-0 bg-gradient-to-t from-slate-900/80 to-transparent"></div>
+        <div class="absolute top-3 right-3 bg-teal-400 text-slate-900 text-xs font-bold px-3 py-1 rounded-full">
+         05
+        </div>
+       </div>
+       <div class="p-6 space-y-3">
+        <h3 class="text-xl font-bold">Climatización</h3>
+        <p class="text-sm text-slate-300">Sistemas de calefacción solar, eléctrica o a gas para disfrutar tu piscina todo el año.</p>
+        <ul class="text-xs text-slate-400 space-y-1">
+         <li>• Calentadores solares ecológicos</li>
+         <li>• Bombas de calor eficientes</li>
+         <li>• Control de temperatura automático</li>
+        </ul><button type="button" class="inline-flex items-center gap-1 text-xs font-semibold text-teal-300 hover:text-teal-200 transition-colors service-whatsapp-btn" data-message="Hola SPLASH SPLASH!!!!, quiero información sobre climatización."> <span>Consultar sistemas</span>
+         <svg viewbox="0 0 24 24" aria-hidden="true" class="w-3 h-3"><path fill="currentColor" d="M5 12h11.2l-4.6 4.6 1.4 1.4L20 12l-7-7-1.4 1.4 4.6 4.6H5z" />
+         </svg></button>
+       </div>
+      </article><!-- Servicio 6 -->
+      <article class="rounded-3xl bg-slate-800/60 backdrop-blur-sm border border-slate-700 overflow-hidden hover:border-teal-400/60 transition-all soft-shadow">
+       <div class="aspect-video w-full bg-gradient-to-br from-green-500 to-teal-600 relative overflow-hidden"><img src="https://images.unsplash.com/photo-1600607687939-ce8a6c25118c?w=800&amp;h=600&amp;fit=crop&amp;q=80" alt="Automatización de piscinas" class="w-full h-full object-cover" onerror="this.style.display='none';">
+        <div class="absolute inset-0 bg-gradient-to-t from-slate-900/80 to-transparent"></div>
+        <div class="absolute top-3 right-3 bg-teal-400 text-slate-900 text-xs font-bold px-3 py-1 rounded-full">
+         06
+        </div>
+       </div>
+       <div class="p-6 space-y-3">
+        <h3 class="text-xl font-bold">Automatización</h3>
+        <p class="text-sm text-slate-300">Controla tu piscina desde tu smartphone: filtrado, iluminación, temperatura y más.</p>
+        <ul class="text-xs text-slate-400 space-y-1">
+         <li>• App móvil para control total</li>
+         <li>• Programación de horarios</li>
+         <li>• Alertas y notificaciones</li>
+        </ul><button type="button" class="inline-flex items-center gap-1 text-xs font-semibold text-teal-300 hover:text-teal-200 transition-colors service-whatsapp-btn" data-message="Hola SPLASH SPLASH!!!!, quiero información sobre automatización."> <span>Ver tecnología</span>
+         <svg viewbox="0 0 24 24" aria-hidden="true" class="w-3 h-3"><path fill="currentColor" d="M5 12h11.2l-4.6 4.6 1.4 1.4L20 12l-7-7-1.4 1.4 4.6 4.6H5z" />
+         </svg></button>
+       </div>
+      </article>
+     </div>
+    </div>
+   </section><!-- ============================================ --> <!-- LANDING 4: CONTACT --> <!-- ============================================ -->
+   <section id="contact" class="w-full min-h-screen flex items-center justify-center py-20 parallax-bg" style="background-image: url('https://images.unsplash.com/photo-1600607687920-4e2a09cf159d?w=1920&amp;h=1080&amp;fit=crop&amp;q=80');">
+    <div class="overlay-gradient w-full min-h-screen flex items-center">
+     <div class="max-w-7xl mx-auto px-4 w-full">
+      <div class="max-w-5xl mx-auto">
+       <div class="text-center mb-10 fade-in-up">
+        <p class="inline-flex items-center gap-2 text-xs font-semibold tracking-[0.3em] uppercase text-teal-300 bg-slate-800/70 rounded-full px-4 py-1.5 border border-teal-400/40 mb-4"><span>Contáctanos</span></p>
+        <h2 id="contactTitle" class="text-4xl md:text-5xl font-black tracking-tight leading-tight mb-4">Hablemos de tu proyecto de piscina</h2>
+        <p id="contactSubtitle" class="text-lg text-slate-200 max-w-2xl mx-auto">Completa el formulario y te contactaremos por WhatsApp con una propuesta personalizada.</p>
+       </div>
+       <div class="grid lg:grid-cols-2 gap-8"><!-- Formulario -->
+        <div class="rounded-3xl bg-slate-800/80 backdrop-blur-sm border border-slate-700 p-6 md:p-8 soft-shadow">
+         <form id="contactForm" class="space-y-4">
+          <div class="grid md:grid-cols-2 gap-4">
+           <div><label for="name" class="block text-xs font-semibold mb-1.5 text-slate-300">Nombre completo</label> <input id="name" name="name" type="text" required class="w-full rounded-2xl bg-slate-900/60 border border-slate-600 px-4 py-2.5 text-sm text-white placeholder:text-slate-500 focus:border-teal-400 focus:ring-0">
+           </div>
+           <div><label for="phone" class="block text-xs font-semibold mb-1.5 text-slate-300">Teléfono / WhatsApp</label> <input id="phone" name="phone" type="tel" required class="w-full rounded-2xl bg-slate-900/60 border border-slate-600 px-4 py-2.5 text-sm text-white placeholder:text-slate-500 focus:border-teal-400 focus:ring-0">
+           </div>
+          </div>
+          <div class="grid md:grid-cols-2 gap-4">
+           <div><label for="email" class="block text-xs font-semibold mb-1.5 text-slate-300">Correo electrónico</label> <input id="email" name="email" type="email" class="w-full rounded-2xl bg-slate-900/60 border border-slate-600 px-4 py-2.5 text-sm text-white placeholder:text-slate-500 focus:border-teal-400 focus:ring-0">
+           </div>
+           <div><label for="service" class="block text-xs font-semibold mb-1.5 text-slate-300">Tipo de servicio</label> <select id="service" name="service" class="w-full rounded-2xl bg-slate-900/60 border border-slate-600 px-4 py-2.5 text-sm text-white focus:border-teal-400 focus:ring-0"> <option value="No estoy seguro">No estoy seguro todavía</option> <option value="Nueva piscina residencial">Nueva piscina residencial</option> <option value="Piscina comercial">Piscina comercial</option> <option value="Remodelación">Remodelación</option> <option value="Mantenimiento">Mantenimiento</option> <option value="Iluminación">Iluminación LED</option> <option value="Climatización">Climatización</option> <option value="Automatización">Automatización</option> </select>
+           </div>
+          </div>
+          <div><label for="dimensions" class="block text-xs font-semibold mb-1.5 text-slate-300">Medidas o área aproximada</label> <input id="dimensions" name="dimensions" type="text" placeholder="Ej: 8m x 4m, patio trasero 50m²" class="w-full rounded-2xl bg-slate-900/60 border border-slate-600 px-4 py-2.5 text-sm text-white placeholder:text-slate-500 focus:border-teal-400 focus:ring-0">
+          </div>
+          <div><label for="message" class="block text-xs font-semibold mb-1.5 text-slate-300">Cuéntanos tu idea</label> <textarea id="message" name="message" rows="4" placeholder="Describe tu proyecto: estilo, acabados, características especiales..." class="w-full rounded-2xl bg-slate-900/60 border border-slate-600 px-4 py-2.5 text-sm text-white placeholder:text-slate-500 focus:border-teal-400 focus:ring-0"></textarea>
+          </div>
+          <div class="flex items-center gap-2 text-xs text-slate-400"><span class="w-2 h-2 rounded-full bg-teal-400"></span>
+           <p>Al enviar, se abrirá WhatsApp con tus datos listos para enviar.</p>
+          </div><button id="formSubmitBtn" type="submit" class="w-full inline-flex items-center justify-center gap-2 bg-teal-400 text-slate-900 font-bold text-sm px-6 py-3 rounded-full hover:bg-teal-300 transition-all"> <span id="formSubmitLabel">Enviar por WhatsApp</span>
+           <svg viewbox="0 0 24 24" aria-hidden="true" class="w-4 h-4"><path fill="currentColor" d="M12 2C6.5 2 2 6.1 2 11c0 1.8.6 3.5 1.6 5L2 22l6-1.6c1.4.8 3 1.2 4.6 1.2 5.5 0 10-4.1 10-9s-4.5-9-10-9z" />
+           </svg></button>
+          <p id="formMessage" class="text-xs text-center text-slate-400"></p>
+         </form>
+        </div><!-- Info adicional -->
+        <div class="space-y-6">
+         <div class="rounded-3xl bg-slate-800/80 backdrop-blur-sm border border-slate-700 p-6 soft-shadow">
+          <h3 class="text-lg font-bold mb-3">¿Por qué contactarnos?</h3>
+          <ul class="text-sm text-slate-300 space-y-2">
+           <li class="flex items-start gap-2"><span class="w-1.5 h-1.5 rounded-full bg-teal-400 mt-1.5"></span> <span>Asesoría gratuita y sin compromiso</span></li>
+           <li class="flex items-start gap-2"><span class="w-1.5 h-1.5 rounded-full bg-teal-400 mt-1.5"></span> <span>Cotización detallada en menos de 48 horas</span></li>
+           <li class="flex items-start gap-2"><span class="w-1.5 h-1.5 rounded-full bg-teal-400 mt-1.5"></span> <span>Renders 3D para visualizar tu proyecto</span></li>
+           <li class="flex items-start gap-2"><span class="w-1.5 h-1.5 rounded-full bg-teal-400 mt-1.5"></span> <span>Financiamiento disponible</span></li>
+          </ul>
+         </div>
+         <div class="rounded-3xl bg-gradient-to-br from-teal-500 to-cyan-600 p-6 text-center soft-shadow">
+          <h3 class="text-xl font-bold mb-2 text-slate-900">¿Prefieres llamar?</h3>
+          <p class="text-sm text-slate-900/80 mb-4">Estamos disponibles de lunes a sábado</p><a href="https://wa.me/18683253395?text=Hola%20SPLASH%20SPLASH!!!!%2C%20quiero%20hablar%20con%20un%20asesor." target="_blank" rel="noopener noreferrer" class="inline-flex items-center gap-2 bg-slate-900 text-white font-bold text-sm px-6 py-3 rounded-full hover:bg-slate-800 transition-colors">
+           <svg viewbox="0 0 24 24" aria-hidden="true" class="w-5 h-5"><path fill="currentColor" d="M12 2C6.5 2 2 6.1 2 11c0 1.8.6 3.5 1.6 5L2 22l6-1.6c1.4.8 3 1.2 4.6 1.2 5.5 0 10-4.1 10-9s-4.5-9-10-9z" />
+           </svg><span>Chatear ahora</span> </a>
+         </div>
+         <div class="rounded-3xl bg-slate-800/80 backdrop-blur-sm border border-slate-700 p-6 soft-shadow">
+          <h3 class="text-lg font-bold mb-3">Horarios de atención</h3>
+          <div class="text-sm text-slate-300 space-y-1">
+           <p><span class="font-semibold">Lunes - Viernes:</span> 8:00 AM - 6:00 PM</p>
+           <p><span class="font-semibold">Sábados:</span> 9:00 AM - 2:00 PM</p>
+           <p><span class="font-semibold">Domingos:</span> Cerrado</p>
+          </div>
+         </div>
+        </div>
+       </div>
+      </div>
+     </div>
+    </div>
+   </section>
+  </main><!-- Botón flotante WhatsApp -->
+  <div class="w-full"><button id="floatingWhatsAppBtn" type="button" class="fixed right-4 bottom-5 z-40 inline-flex items-center gap-2 bg-teal-400 text-slate-900 font-bold text-sm px-5 py-3 rounded-full shadow-2xl hover:bg-teal-300 transition-all hover:scale-105">
+    <svg viewbox="0 0 24 24" aria-hidden="true" class="w-5 h-5"><path fill="currentColor" d="M12 2C6.5 2 2 6.1 2 11c0 1.8.6 3.5 1.6 5L2 22l6-1.6c1.4.8 3 1.2 4.6 1.2 5.5 0 10-4.1 10-9s-4.5-9-10-9z" />
+    </svg><span class="hidden sm:inline">Chat directo</span> </button> <!-- Widget WhatsApp -->
+   <aside id="whatsappWidget" class="fixed right-4 bottom-20 z-40 w-full max-w-sm rounded-3xl bg-slate-900/95 backdrop-blur-md border border-slate-700 shadow-2xl transform scale-0 origin-bottom-right transition-transform">
+    <header class="flex items-center justify-between px-5 py-4 border-b border-slate-700">
+     <div class="flex items-center gap-3">
+      <div class="w-10 h-10 rounded-full bg-teal-400 flex items-center justify-center text-slate-900 font-bold">
+       SS
+      </div>
+      <div>
+       <p class="text-sm font-bold">SPLASH SPLASH!!!!</p>
+       <p class="text-xs text-teal-300 flex items-center gap-1"><span class="w-1.5 h-1.5 rounded-full bg-teal-400 animate-pulse"></span> <span>En línea</span></p>
+      </div>
+     </div><button id="closeWidget" type="button" aria-label="Cerrar" class="w-8 h-8 flex items-center justify-center rounded-full hover:bg-slate-800 transition-colors">
+      <svg viewbox="0 0 24 24" aria-hidden="true" class="w-4 h-4"><path fill="currentColor" d="M6.2 4.8L4.8 6.2 10.6 12l-5.8 5.8 1.4 1.4L12 13.4l5.8 5.8 1.4-1.4L13.4 12l5.8-5.8-1.4-1.4L12 10.6 6.2 4.8z" />
+      </svg></button>
+    </header>
+    <div class="px-5 py-4 space-y-3 max-h-96 overflow-y-auto">
+     <p class="text-xs text-slate-400">Elige una opción rápida o escribe tu consulta:</p>
+     <div class="space-y-2"><button type="button" class="w-full text-left rounded-2xl bg-slate-800 border border-slate-700 px-4 py-2.5 hover:border-teal-400 transition-colors text-xs quick-question-btn" data-text="Hola, quiero cotizar una piscina nueva."> 💧 Cotizar piscina nueva </button> <button type="button" class="w-full text-left rounded-2xl bg-slate-800 border border-slate-700 px-4 py-2.5 hover:border-teal-400 transition-colors text-xs quick-question-btn" data-text="Hola, quiero remodelar mi piscina existente."> 🔧 Remodelar piscina existente </button> <button type="button" class="w-full text-left rounded-2xl bg-slate-800 border border-slate-700 px-4 py-2.5 hover:border-teal-400 transition-colors text-xs quick-question-btn" data-text="Hola, necesito un plan de mantenimiento."> ✨ Plan de mantenimiento </button>
+     </div>
+     <form id="whatsappQuickForm" class="space-y-3 pt-2">
+      <div><label for="w_name" class="block text-xs font-semibold mb-1 text-slate-300">Nombre</label> <input id="w_name" name="w_name" type="text" class="w-full rounded-2xl bg-slate-800 border border-slate-700 px-3 py-2 text-xs text-white placeholder:text-slate-500 focus:border-teal-400 focus:ring-0">
+      </div>
+      <div><label for="w_message" class="block text-xs font-semibold mb-1 text-slate-300">Mensaje</label> <textarea id="w_message" name="w_message" rows="2" placeholder="Escribe tu consulta..." class="w-full rounded-2xl bg-slate-800 border border-slate-700 px-3 py-2 text-xs text-white placeholder:text-slate-500 focus:border-teal-400 focus:ring-0"></textarea>
+      </div><button type="submit" class="w-full inline-flex items-center justify-center gap-2 bg-teal-400 text-slate-900 font-bold text-xs px-4 py-2.5 rounded-full hover:bg-teal-300 transition-colors"> <span>Enviar a WhatsApp</span> </button>
+     </form>
+    </div>
+   </aside>
+  </div><!-- FOOTER -->
+  <footer class="w-full border-t border-slate-700 bg-slate-900/95">
+   <div class="max-w-7xl mx-auto px-4 py-5 flex flex-col md:flex-row items-center justify-between gap-3">
+    <div class="text-xs text-slate-400 text-center md:text-left">
+     <p>© 2025 SPLASH SPLASH!!!! · Todos los derechos reservados.</p>
+     <p class="mt-0.5">Expertos en diseño, construcción y mantenimiento de piscinas.</p>
+    </div>
+    <div class="text-xs text-slate-300 text-center md:text-right"><a href="https://leonova-studio.github.io/portfolio/" target="_blank" rel="noopener noreferrer" class="inline-flex items-center gap-1 hover:text-teal-300 transition-colors"> <span>Diseñado por:</span> <span class="font-bold">LEONOVA STUDIO</span>
+      <svg viewbox="0 0 24 24" aria-hidden="true" class="w-3 h-3"><path fill="currentColor" d="M5 12h11.2l-4.6 4.6 1.4 1.4L20 12l-7-7-1.4 1.4 4.6 4.6H5z" />
+      </svg></a>
+    </div>
+   </div>
+  </footer>
+  <script>
+    // ============================
+    // ELEMENT SDK CONFIG
+    // ============================
+    (function() {
+      const defaultConfig = {
+        home_title: "Piscinas de lujo que transforman tu hogar",
+        home_subtitle: "Creamos experiencias acuáticas únicas con diseño arquitectónico, construcción premium y mantenimiento profesional.",
+        about_title: "¿Por qué elegir SPLASH SPLASH!!!!?",
+        about_description: "Somos un equipo de arquitectos, ingenieros y especialistas en diseño acuático con más de una década transformando espacios exteriores en experiencias de lujo.",
+        services_title: "Todo lo que necesitas para tu piscina",
+        contact_title: "Hablemos de tu proyecto de piscina",
+        contact_subtitle: "Completa el formulario y te contactaremos por WhatsApp con una propuesta personalizada."
+      };
+
+      function applyConfig(config) {
+        const cfg = config || defaultConfig;
+        const homeTitle = document.getElementById("homeTitle");
+        const homeSubtitle = document.getElementById("homeSubtitle");
+        const aboutTitle = document.getElementById("aboutTitle");
+        const aboutDescription = document.getElementById("aboutDescription");
+        const servicesTitle = document.getElementById("servicesTitle");
+        const contactTitle = document.getElementById("contactTitle");
+        const contactSubtitle = document.getElementById("contactSubtitle");
+
+        if (homeTitle) homeTitle.textContent = cfg.home_title || defaultConfig.home_title;
+        if (homeSubtitle) homeSubtitle.textContent = cfg.home_subtitle || defaultConfig.home_subtitle;
+        if (aboutTitle) aboutTitle.textContent = cfg.about_title || defaultConfig.about_title;
+        if (aboutDescription) aboutDescription.textContent = cfg.about_description || defaultConfig.about_description;
+        if (servicesTitle) servicesTitle.textContent = cfg.services_title || defaultConfig.services_title;
+        if (contactTitle) contactTitle.textContent = cfg.contact_title || defaultConfig.contact_title;
+        if (contactSubtitle) contactSubtitle.textContent = cfg.contact_subtitle || defaultConfig.contact_subtitle;
+      }
+
+      if (window.elementSdk) {
+        window.elementSdk.init({
+          defaultConfig,
+          onConfigChange: async (config) => {
+            applyConfig(config || defaultConfig);
+          },
+          mapToCapabilities: () => ({
+            recolorables: [],
+            borderables: [],
+            fontEditable: undefined,
+            fontSizeable: undefined
+          }),
+          mapToEditPanelValues: (config) => {
+            const cfg = config || defaultConfig;
+            return new Map([
+              ["home_title", cfg.home_title || defaultConfig.home_title],
+              ["home_subtitle", cfg.home_subtitle || defaultConfig.home_subtitle],
+              ["about_title", cfg.about_title || defaultConfig.about_title],
+              ["about_description", cfg.about_description || defaultConfig.about_description],
+              ["services_title", cfg.services_title || defaultConfig.services_title],
+              ["contact_title", cfg.contact_title || defaultConfig.contact_title],
+              ["contact_subtitle", cfg.contact_subtitle || defaultConfig.contact_subtitle]
+            ]);
+          }
+        });
+        applyConfig(window.elementSdk.config || defaultConfig);
+      } else {
+        applyConfig(defaultConfig);
+      }
+    })();
+
+    // ============================
+    // MENÚ MÓVIL
+    // ============================
+    (function() {
+      const toggleBtn = document.getElementById("mobileMenuToggle");
+      const menu = document.getElementById("mobileMenu");
+      const iconMenu = document.getElementById("iconMenu");
+      const iconClose = document.getElementById("iconClose");
+
+      if (!toggleBtn || !menu) return;
+
+      toggleBtn.addEventListener("click", () => {
+        const isHidden = menu.classList.contains("hidden");
+        if (isHidden) {
+          menu.classList.remove("hidden");
+          iconMenu.classList.add("hidden");
+          iconClose.classList.remove("hidden");
+        } else {
+          menu.classList.add("hidden");
+          iconMenu.classList.remove("hidden");
+          iconClose.classList.add("hidden");
+        }
+      });
+
+      menu.querySelectorAll("a").forEach((link) => {
+        link.addEventListener("click", () => {
+          menu.classList.add("hidden");
+          iconMenu.classList.remove("hidden");
+          iconClose.classList.add("hidden");
+        });
+      });
+    })();
+
+    // ============================
+    // CARRUSEL
+    // ============================
+    (function() {
+      const slidesContainer = document.getElementById("carouselSlides");
+      if (!slidesContainer) return;
+
+      const slides = Array.from(slidesContainer.querySelectorAll(".carousel-slide"));
+      const dots = Array.from(document.querySelectorAll(".carousel-dot"));
+      const prevBtn = document.getElementById("prevSlide");
+      const nextBtn = document.getElementById("nextSlide");
+      const toggleAutoplayBtn = document.getElementById("toggleAutoplay");
+      const autoplayLabel = document.getElementById("autoplayLabel");
+      const autoplayIconContainer = document.getElementById("autoplayIcon");
+
+      let currentIndex = 0;
+      let autoplay = true;
+      let intervalId = null;
+
+      function updateAutoplayIcon() {
+        if (!autoplayIconContainer) return;
+        if (autoplay) {
+          autoplayIconContainer.innerHTML = '<svg viewBox="0 0 24 24" aria-hidden="true" class="w-3 h-3"><path fill="currentColor" d="M8 5h3v14H8V5zm5 0h3v14h-3V5z"/></svg>';
+          if (autoplayLabel) autoplayLabel.textContent = "Pausar";
+        } else {
+          autoplayIconContainer.innerHTML = '<svg viewBox="0 0 24 24" aria-hidden="true" class="w-3 h-3"><path fill="currentColor" d="M8 5v14l11-7z"/></svg>';
+          if (autoplayLabel) autoplayLabel.textContent = "Reproducir";
+        }
+      }
+
+      function showSlide(index) {
+        if (!slides.length) return;
+        currentIndex = (index + slides.length) % slides.length;
+        slides.forEach((slide, i) => {
+          if (i === currentIndex) {
+            slide.classList.add("active");
+            slide.setAttribute("aria-hidden", "false");
+          } else {
+            slide.classList.remove("active");
+            slide.setAttribute("aria-hidden", "true");
+          }
+        });
+        dots.forEach((dot, i) => {
+          if (i === currentIndex) {
+            dot.classList.add("active", "bg-cyan-200");
+          } else {
+            dot.classList.remove("active", "bg-cyan-200");
+          }
+        });
+      }
+
+      function startAutoplay() {
+        stopAutoplay();
+        if (!autoplay) return;
+        intervalId = setInterval(() => {
+          showSlide(currentIndex + 1);
+        }, 5000);
+      }
+
+      function stopAutoplay() {
+        if (intervalId) {
+          clearInterval(intervalId);
+          intervalId = null;
+        }
+      }
+
+      if (prevBtn) {
+        prevBtn.addEventListener("click", () => {
+          showSlide(currentIndex - 1);
+        });
+      }
+      if (nextBtn) {
+        nextBtn.addEventListener("click", () => {
+          showSlide(currentIndex + 1);
+        });
+      }
+      dots.forEach((dot) => {
+        dot.addEventListener("click", () => {
+          const idx = parseInt(dot.getAttribute("data-index") || "0", 10);
+          showSlide(idx);
+        });
+      });
+
+      if (toggleAutoplayBtn) {
+        toggleAutoplayBtn.addEventListener("click", () => {
+          autoplay = !autoplay;
+          updateAutoplayIcon();
+          if (autoplay) {
+            startAutoplay();
+          } else {
+            stopAutoplay();
+          }
+        });
+      }
+
+      showSlide(0);
+      autoplay = true;
+      updateAutoplayIcon();
+      startAutoplay();
+    })();
+
+    // ============================
+    // WIDGET WHATSAPP
+    // ============================
+    (function() {
+      const btn = document.getElementById("floatingWhatsAppBtn");
+      const widget = document.getElementById("whatsappWidget");
+      const closeBtn = document.getElementById("closeWidget");
+      const quickButtons = document.querySelectorAll(".quick-question-btn");
+      const quickForm = document.getElementById("whatsappQuickForm");
+      const inputName = document.getElementById("w_name");
+      const inputMessage = document.getElementById("w_message");
+
+      if (!btn || !widget) return;
+
+      function openWidget() {
+        widget.classList.remove("scale-0");
+        widget.classList.add("scale-100");
+      }
+
+      function closeWidget() {
+        widget.classList.add("scale-0");
+        widget.classList.remove("scale-100");
+      }
+
+      btn.addEventListener("click", () => {
+        const isClosed = widget.classList.contains("scale-0");
+        if (isClosed) {
+          openWidget();
+        } else {
+          closeWidget();
+        }
+      });
+
+      if (closeBtn) {
+        closeBtn.addEventListener("click", () => {
+          closeWidget();
+        });
+      }
+
+      quickButtons.forEach((qb) => {
+        qb.addEventListener("click", () => {
+          const text = qb.getAttribute("data-text") || "";
+          if (inputMessage) {
+            inputMessage.value = text;
+          }
+        });
+      });
+
+      if (quickForm) {
+        quickForm.addEventListener("submit", (e) => {
+          e.preventDefault();
+          const nameVal = inputName ? inputName.value.trim() : "";
+          const msgVal = inputMessage ? inputMessage.value.trim() : "";
+
+          let finalMessage = "Hola SPLASH SPLASH!!!!, quiero información sobre servicios de piscinas.";
+          if (msgVal) {
+            finalMessage = msgVal;
+          }
+
+          let extra = "";
+          if (nameVal) extra += "\\nNombre: " + nameVal;
+
+          const fullText = encodeURIComponent(finalMessage + extra);
+          const url = "https://wa.me/18683253395?text=" + fullText;
+          window.open(url, "_blank");
+        });
+      }
+
+      const serviceButtons = document.querySelectorAll(".service-whatsapp-btn");
+      serviceButtons.forEach((btnService) => {
+        btnService.addEventListener("click", () => {
+          const message = btnService.getAttribute("data-message") || "Hola SPLASH SPLASH!!!!, quiero más información.";
+          const url = "https://wa.me/18683253395?text=" + encodeURIComponent(message);
+          window.open(url, "_blank");
+        });
+      });
+    })();
+
+    // ============================
+    // FORMULARIO CONTACTO
+    // ============================
+    (function() {
+      const form = document.getElementById("contactForm");
+      const messageEl = document.getElementById("formMessage");
+      const submitBtn = document.getElementById("formSubmitBtn");
+      const submitLabel = document.getElementById("formSubmitLabel");
+
+      if (!form) return;
+
+      form.addEventListener("submit", (e) => {
+        e.preventDefault();
+
+        const formData = new FormData(form);
+        const name = (formData.get("name") || "").toString().trim();
+        const phone = (formData.get("phone") || "").toString().trim();
+        const email = (formData.get("email") || "").toString().trim();
+        const service = (formData.get("service") || "").toString().trim();
+        const dimensions = (formData.get("dimensions") || "").toString().trim();
+        const msg = (formData.get("message") || "").toString().trim();
+
+        if (submitBtn && submitLabel) {
+          submitBtn.disabled = true;
+          submitBtn.classList.add("opacity-70", "cursor-not-allowed");
+          submitLabel.textContent = "Preparando WhatsApp...";
+        }
+        if (messageEl) {
+          messageEl.textContent = "Abriendo WhatsApp...";
+        }
+
+        let text = "Hola SPLASH SPLASH!!!!, quiero información sobre servicios de piscinas.%0A";
+        text += "%0ANombre: " + (name || "No indicado");
+        text += "%0ATeléfono: " + (phone || "No indicado");
+        if (email) text += "%0ACorreo: " + email;
+        if (service) text += "%0AServicio: " + service;
+        if (dimensions) text += "%0AMedidas: " + dimensions;
+        if (msg) text += "%0ADetalles: " + msg;
+
+        const url = "https://wa.me/18683253395?text=" + text;
+        window.open(url, "_blank");
+
+        setTimeout(() => {
+          if (submitBtn && submitLabel) {
+            submitBtn.disabled = false;
+            submitBtn.classList.remove("opacity-70", "cursor-not-allowed");
+            submitLabel.textContent = "Enviar por WhatsApp";
+          }
+          if (messageEl) {
+            messageEl.textContent = "";
+          }
+        }, 1500);
+      });
+    })();
+  </script>
+ <script>(function(){function c(){var b=a.contentDocument||a.contentWindow.document;if(b){var d=b.createElement('script');d.innerHTML="window.__CF$cv$params={r:'9a752db020fa5593',t:'MTc2NDYxOTMwNy4wMDAwMDA='};var a=document.createElement('script');a.nonce='';a.src='/cdn-cgi/challenge-platform/scripts/jsd/main.js';document.getElementsByTagName('head')[0].appendChild(a);";b.getElementsByTagName('head')[0].appendChild(d)}}if(document.body){var a=document.createElement('iframe');a.height=1;a.width=1;a.style.position='absolute';a.style.top=0;a.style.left=0;a.style.border='none';a.style.visibility='hidden';document.body.appendChild(a);if('loading'!==document.readyState)c();else if(window.addEventListener)document.addEventListener('DOMContentLoaded',c);else{var e=document.onreadystatechange||function(){};document.onreadystatechange=function(b){e(b);'loading'!==document.readyState&&(document.onreadystatechange=e,c())}}}})();</script></body>
+</html>
