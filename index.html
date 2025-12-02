@@ -93,7 +93,7 @@
   <script src="/_sdk/data_sdk.js" type="text/javascript"></script>
  </head>
  <body class="app-wrapper bg-slate-900 text-white"><!-- HEADER FIJO -->
-  <header class="w-full fixed top-0 left-0 z-50 bg-slate-900/95 backdrop-blur-md border-b border-slate-700/50">
+  <header class="w-full sticky top-0 left-0 z-50 bg-slate-900/95 backdrop-blur-md border-b border-slate-700/50">
    <nav class="w-full">
     <div class="max-w-7xl mx-auto px-4 py-3 flex items-center justify-between"><!-- Logo -->
      <div class="flex items-center gap-3">
@@ -128,66 +128,73 @@
      </div><a href="https://wa.me/15615078566?text=Hola%20SPLASH%20SPLASH!!!!%2C%20quiero%20informaci%C3%B3n." target="_blank" rel="noopener noreferrer" class="w-full inline-flex items-center justify-center gap-2 bg-teal-400 text-slate-900 font-semibold text-xs px-4 py-2 rounded-full hover:bg-teal-300 transition-colors"> <span>WhatsApp directo</span> </a>
     </div>
    </nav>
-  </header>
-  <main class="w-full"><!-- ============================================ --> <!-- LANDING 1: HOME con carrusel de imágenes reales --> <!-- ============================================ -->
-   <section id="home" class="w-full min-h-screen flex items-center justify-center pt-20 pb-10 bg-gradient-to-br from-slate-900 via-slate-800 to-teal-900">
-    <div class="max-w-7xl mx-auto px-4 w-full">
-     <div class="grid lg:grid-cols-2 gap-10 items-center"><!-- Carrusel con imágenes reales (PRIMERO en móvil, SEGUNDO en desktop) -->
-      <div class="relative fade-in-up order-1 lg:order-2 space-y-3">
-       <div class="relative rounded-3xl overflow-hidden soft-shadow border-2 border-cyan-400/30">
-        <div id="carouselSlides" class="relative aspect-[4/3] w-full bg-slate-800"><!-- Slide 1: Hotel de lujo -->
-         <div class="carousel-slide absolute inset-0 active" data-index="0" aria-hidden="false"><img src="https://images.unsplash.com/photo-1571896349842-33c89424de2d?w=1200&amp;h=900&amp;fit=crop&amp;q=80" alt="Piscina de hotel de lujo con vista panorámica" class="w-full h-full object-cover" onerror="this.src=''; this.alt='Imagen no disponible'; this.style.display='none';">
-          <div class="absolute inset-0 bg-gradient-to-t from-slate-900/80 via-transparent to-transparent"></div>
-          <div class="absolute bottom-0 left-0 right-0 p-6 text-white">
-           <p class="text-xs font-semibold tracking-[0.25em] uppercase text-cyan-300 mb-1">Hoteles de lujo</p>
-           <h3 class="text-xl font-black">Piscinas exclusivas para complejos turísticos</h3>
-          </div>
-         </div><!-- Slide 2: Residencia de alto nivel -->
-         <div class="carousel-slide absolute inset-0" data-index="1" aria-hidden="true"><img src="https://images.unsplash.com/photo-1564013799919-ab600027ffc6?w=1200&amp;h=900&amp;fit=crop&amp;q=80" alt="Piscina infinity en residencia de lujo" class="w-full h-full object-cover" onerror="this.src=''; this.alt='Imagen no disponible'; this.style.display='none';">
-          <div class="absolute inset-0 bg-gradient-to-t from-slate-900/80 via-transparent to-transparent"></div>
-          <div class="absolute bottom-0 left-0 right-0 p-6 text-white">
-           <p class="text-xs font-semibold tracking-[0.25em] uppercase text-cyan-300 mb-1">Residencias exclusivas</p>
-           <h3 class="text-xl font-black">Diseño arquitectónico personalizado</h3>
-          </div>
-         </div><!-- Slide 3: Piscina resort -->
-         <div class="carousel-slide absolute inset-0" data-index="2" aria-hidden="true"><img src="https://images.unsplash.com/photo-1602002418082-a4443e081dd1?w=1200&amp;h=900&amp;fit=crop&amp;q=80" alt="Piscina de resort con áreas de descanso" class="w-full h-full object-cover" onerror="this.src=''; this.alt='Imagen no disponible'; this.style.display='none';">
-          <div class="absolute inset-0 bg-gradient-to-t from-slate-900/80 via-transparent to-transparent"></div>
-          <div class="absolute bottom-0 left-0 right-0 p-6 text-white">
-           <p class="text-xs font-semibold tracking-[0.25em] uppercase text-cyan-300 mb-1">Complejos turísticos</p>
-           <h3 class="text-xl font-black">Fabricación e instalación completa</h3>
-          </div>
-         </div>
-        </div>
-       </div><!-- Controles carrusel (fuera del carrusel) -->
-       <div class="flex items-center justify-between px-4 py-3 bg-slate-800/60 backdrop-blur-sm rounded-2xl border border-slate-700">
-        <div class="flex items-center gap-2"><button id="prevSlide" class="w-9 h-9 rounded-full border border-cyan-400/60 flex items-center justify-center hover:bg-cyan-400/10 transition-colors" aria-label="Anterior" type="button">
-          <svg viewbox="0 0 24 24" aria-hidden="true" class="w-4 h-4"><path fill="currentColor" d="M15 5l-7 7 7 7 1.4-1.4L10.8 12l5.6-5.6z" />
-          </svg></button> <button id="nextSlide" class="w-9 h-9 rounded-full border border-cyan-400/60 flex items-center justify-center hover:bg-cyan-400/10 transition-colors" aria-label="Siguiente" type="button">
-          <svg viewbox="0 0 24 24" aria-hidden="true" class="w-4 h-4"><path fill="currentColor" d="M9 5l7 7-7 7-1.4-1.4L13.2 12 7.6 6.4z" />
-          </svg></button>
-        </div>
-        <div class="flex items-center gap-1.5"><button class="carousel-dot w-2 h-2 rounded-full bg-cyan-300/50 active" data-index="0" aria-label="Slide 1" type="button"></button> <button class="carousel-dot w-2 h-2 rounded-full bg-cyan-300/50" data-index="1" aria-label="Slide 2" type="button"></button> <button class="carousel-dot w-2 h-2 rounded-full bg-cyan-300/50" data-index="2" aria-label="Slide 3" type="button"></button>
-        </div><button id="toggleAutoplay" class="inline-flex items-center gap-2 text-xs font-medium text-cyan-100 border border-cyan-400/60 rounded-full px-3 py-1.5 hover:bg-cyan-400/10 transition-colors" type="button"> <span id="autoplayIcon"></span> <span id="autoplayLabel">Pausar</span> </button>
+  </header><!-- CARRUSEL HERO FULL WIDTH -->
+  <section class="w-full relative">
+   <div class="relative w-full">
+    <div id="carouselSlides" class="relative w-full h-[60vh] md:h-[70vh] lg:h-[80vh] bg-slate-800"><!-- Slide 1: Hotel de lujo -->
+     <div class="carousel-slide absolute inset-0 active" data-index="0" aria-hidden="false"><img src="https://images.unsplash.com/photo-1571896349842-33c89424de2d?w=1920&amp;h=1080&amp;fit=crop&amp;q=80" alt="Piscina de hotel de lujo con vista panorámica" class="w-full h-full object-cover" onerror="this.src=''; this.alt='Imagen no disponible'; this.style.display='none';">
+      <div class="absolute inset-0 bg-gradient-to-t from-slate-900/90 via-slate-900/40 to-transparent"></div>
+      <div class="absolute bottom-0 left-0 right-0 p-8 md:p-12 text-white max-w-7xl mx-auto">
+       <p class="text-xs md:text-sm font-semibold tracking-[0.25em] uppercase text-cyan-300 mb-2">Hoteles de lujo</p>
+       <h3 class="text-2xl md:text-4xl lg:text-5xl font-black mb-3">Piscinas exclusivas para complejos turísticos</h3>
+       <p class="text-sm md:text-base text-slate-200 max-w-2xl">Diseño arquitectónico y fabricación premium para hoteles boutique</p>
+      </div>
+     </div><!-- Slide 2: Residencia de alto nivel -->
+     <div class="carousel-slide absolute inset-0" data-index="1" aria-hidden="true"><img src="https://images.unsplash.com/photo-1564013799919-ab600027ffc6?w=1920&amp;h=1080&amp;fit=crop&amp;q=80" alt="Piscina infinity en residencia de lujo" class="w-full h-full object-cover" onerror="this.src=''; this.alt='Imagen no disponible'; this.style.display='none';">
+      <div class="absolute inset-0 bg-gradient-to-t from-slate-900/90 via-slate-900/40 to-transparent"></div>
+      <div class="absolute bottom-0 left-0 right-0 p-8 md:p-12 text-white max-w-7xl mx-auto">
+       <p class="text-xs md:text-sm font-semibold tracking-[0.25em] uppercase text-cyan-300 mb-2">Residencias exclusivas</p>
+       <h3 class="text-2xl md:text-4xl lg:text-5xl font-black mb-3">Diseño arquitectónico personalizado</h3>
+       <p class="text-sm md:text-base text-slate-200 max-w-2xl">Piscinas infinity y diseños únicos para residencias de alto nivel</p>
+      </div>
+     </div><!-- Slide 3: Piscina resort -->
+     <div class="carousel-slide absolute inset-0" data-index="2" aria-hidden="true"><img src="https://images.unsplash.com/photo-1602002418082-a4443e081dd1?w=1920&amp;h=1080&amp;fit=crop&amp;q=80" alt="Piscina de resort con áreas de descanso" class="w-full h-full object-cover" onerror="this.src=''; this.alt='Imagen no disponible'; this.style.display='none';">
+      <div class="absolute inset-0 bg-gradient-to-t from-slate-900/90 via-slate-900/40 to-transparent"></div>
+      <div class="absolute bottom-0 left-0 right-0 p-8 md:p-12 text-white max-w-7xl mx-auto">
+       <p class="text-xs md:text-sm font-semibold tracking-[0.25em] uppercase text-cyan-300 mb-2">Complejos turísticos</p>
+       <h3 class="text-2xl md:text-4xl lg:text-5xl font-black mb-3">Fabricación e instalación completa</h3>
+       <p class="text-sm md:text-base text-slate-200 max-w-2xl">Proyectos llave en mano para resorts y complejos turísticos</p>
+      </div>
+     </div>
+    </div><!-- Controles carrusel -->
+    <div class="absolute -bottom-16 left-0 right-0 z-10">
+     <div class="max-w-7xl mx-auto px-4 md:px-8">
+      <div class="flex items-center justify-between px-4 py-3 bg-slate-900/80 backdrop-blur-md rounded-2xl border border-slate-700/50">
+       <div class="flex items-center gap-2"><button id="prevSlide" class="w-9 h-9 rounded-full border border-cyan-400/60 flex items-center justify-center hover:bg-cyan-400/10 transition-colors" aria-label="Anterior" type="button">
+         <svg viewbox="0 0 24 24" aria-hidden="true" class="w-4 h-4"><path fill="currentColor" d="M15 5l-7 7 7 7 1.4-1.4L10.8 12l5.6-5.6z" />
+         </svg></button> <button id="nextSlide" class="w-9 h-9 rounded-full border border-cyan-400/60 flex items-center justify-center hover:bg-cyan-400/10 transition-colors" aria-label="Siguiente" type="button">
+         <svg viewbox="0 0 24 24" aria-hidden="true" class="w-4 h-4"><path fill="currentColor" d="M9 5l7 7-7 7-1.4-1.4L13.2 12 7.6 6.4z" />
+         </svg></button>
        </div>
-      </div><!-- Texto (SEGUNDO en m��vil, PRIMERO en desktop) -->
-      <div class="space-y-6 fade-in-up text-center lg:text-left order-2 lg:order-1">
+       <div class="flex items-center gap-1.5"><button class="carousel-dot w-2 h-2 rounded-full bg-cyan-300/50 active" data-index="0" aria-label="Slide 1" type="button"></button> <button class="carousel-dot w-2 h-2 rounded-full bg-cyan-300/50" data-index="1" aria-label="Slide 2" type="button"></button> <button class="carousel-dot w-2 h-2 rounded-full bg-cyan-300/50" data-index="2" aria-label="Slide 3" type="button"></button>
+       </div><button id="toggleAutoplay" class="inline-flex items-center gap-2 text-xs font-medium text-cyan-100 border border-cyan-400/60 rounded-full px-3 py-1.5 hover:bg-cyan-400/10 transition-colors" type="button"> <span id="autoplayIcon"></span> <span id="autoplayLabel">Pausar</span> </button>
+      </div>
+     </div>
+    </div>
+   </div>
+  </section>
+  <main class="w-full"><!-- ============================================ --> <!-- LANDING 1: HOME con carrusel de imágenes reales --> <!-- ============================================ -->
+   <section id="home" class="w-full min-h-screen flex items-center justify-center py-20 bg-gradient-to-br from-slate-900 via-slate-800 to-teal-900">
+    <div class="max-w-7xl mx-auto px-4 w-full">
+     <div class="flex flex-col items-center justify-center text-center"><!-- Texto principal -->
+      <div class="space-y-6 fade-in-up max-w-4xl">
        <p class="inline-flex items-center gap-2 text-xs font-semibold tracking-[0.3em] uppercase text-cyan-300 bg-slate-800/70 rounded-full px-4 py-1.5 border border-cyan-400/40"><span class="w-2 h-2 rounded-full bg-teal-400 animate-pulse"></span> <span>Diseño · Construcción · Mantenimiento</span></p>
        <h1 id="homeTitle" class="text-4xl md:text-5xl font-black tracking-tight leading-tight">Diseño y fabricación de piscinas de lujo</h1>
-       <p id="homeSubtitle" class="text-base md:text-lg text-slate-300 max-w-prose mx-auto lg:mx-0">Especializados en piscinas exclusivas para residencias de alto nivel, hoteles boutique y complejos turísticos. Diseño arquitectónico, fabricación premium, remodelación y mantenimiento integral.</p>
-       <div class="flex flex-col sm:flex-row gap-3 justify-center lg:justify-start"><a href="https://wa.me/15615078566?text=Hola%20SPLASH%20SPLASH!!!!%2C%20quiero%20cotizar%20mi%20piscina." target="_blank" rel="noopener noreferrer" class="inline-flex items-center justify-center gap-2 bg-teal-400 text-slate-900 font-bold text-sm px-6 py-3 rounded-full hover:bg-teal-300 transition-all soft-shadow"> <span>Cotiza tu piscina ahora</span>
+       <p id="homeSubtitle" class="text-base md:text-lg text-slate-300 max-w-prose mx-auto">Especializados en piscinas exclusivas para residencias de alto nivel, hoteles boutique y complejos turísticos. Diseño arquitectónico, fabricación premium, remodelación y mantenimiento integral.</p>
+       <div class="flex flex-col sm:flex-row gap-3 justify-center"><a href="https://wa.me/15615078566?text=Hola%20SPLASH%20SPLASH!!!!%2C%20quiero%20cotizar%20mi%20piscina." target="_blank" rel="noopener noreferrer" class="inline-flex items-center justify-center gap-2 bg-teal-400 text-slate-900 font-bold text-sm px-6 py-3 rounded-full hover:bg-teal-300 transition-all soft-shadow"> <span>Cotiza tu piscina ahora</span>
          <svg viewbox="0 0 24 24" aria-hidden="true" class="w-4 h-4"><path fill="currentColor" d="M5 12h11.2l-4.6 4.6 1.4 1.4L20 12l-7-7-1.4 1.4 4.6 4.6H5z" />
          </svg></a> <a href="#services" class="inline-flex items-center justify-center gap-2 border-2 border-cyan-400/60 text-cyan-100 font-bold text-sm px-6 py-3 rounded-full hover:bg-cyan-400/10 transition-colors"> <span>Ver servicios</span> </a>
        </div>
        <div class="grid grid-cols-3 gap-4 pt-4 text-xs text-slate-300">
-        <div class="text-center lg:text-left">
+        <div class="text-center">
          <p class="text-2xl font-black text-teal-400">+200</p>
          <p class="opacity-80">Piscinas fabricadas</p>
         </div>
-        <div class="text-center lg:text-left">
+        <div class="text-center">
          <p class="text-2xl font-black text-teal-400">15+</p>
          <p class="opacity-80">Hoteles de lujo</p>
         </div>
-        <div class="text-center lg:text-left">
+        <div class="text-center">
          <p class="text-2xl font-black text-teal-400">100%</p>
          <p class="opacity-80">Satisfacción garantizada</p>
         </div>
@@ -196,26 +203,25 @@
      </div>
     </div>
    </section><!-- ============================================ --> <!-- LANDING 2: ABOUT --> <!-- ============================================ -->
-   <section id="services" class="w-full min-h-screen flex items-center justify-center py-20 bg-gradient-to-br from-teal-900 via-slate-800 to-slate-900">
-    <div class="max-w-7xl mx-auto px-4 w-full">
-     <div class="text-center mb-12 fade-in-up">
-      <p class="inline-flex items-center gap-2 text-xs font-semibold tracking-[0.3em] uppercase text-teal-300 bg-slate-800/70 rounded-full px-4 py-1.5 border border-teal-400/40 mb-4"><span>Sobre nosotros</span></p>
+   <section id="about" class="w-full min-h-screen flex items-center justify-center py-20 parallax-bg" style="background-image: url('https://images.unsplash.com/photo-1519046904884-53103b34b206?w=1920&amp;h=1080&amp;fit=crop&amp;q=80');">
+    <div class="overlay-gradient w-full min-h-screen flex items-center">
+     <div class="max-w-7xl mx-auto px-4 w-full">
+      <div class="max-w-4xl mx-auto text-center space-y-8 fade-in-up">
+       <p class="inline-flex items-center gap-2 text-xs font-semibold tracking-[0.3em] uppercase text-teal-300 bg-slate-800/70 rounded-full px-4 py-1.5 border border-teal-400/40"><span>Sobre nosotros</span></p>
        <h2 id="aboutTitle" class="text-4xl md:text-5xl font-black tracking-tight leading-tight">Expertos en piscinas de lujo y exclusividad</h2>
        <p id="aboutDescription" class="text-lg md:text-xl text-slate-200 max-w-3xl mx-auto">Somos fabricantes especializados en piscinas de alto nivel para residencias privadas, hoteles boutique y complejos turísticos. Nuestro equipo de arquitectos, ingenieros y maestros constructores crea espacios acuáticos únicos que combinan diseño, funcionalidad y elegancia.</p>
        <div class="grid md:grid-cols-3 gap-6 pt-6">
-  <article class="rounded-3xl bg-slate-800/80 backdrop-blur-sm border border-slate-700 p-6 text-center hover:border-teal-400/60 transition-all">
-    <div class="w-16 h-16 rounded-full bg-gradient-to-br from-teal-400 to-cyan-300 flex items-center justify-center mx-auto mb-4">
-      <svg viewBox="0 0 24 24" aria-hidden="true" class="w-8 h-8 text-slate-900">
-        <path fill="currentColor" d="M12 2L2 7v10c0 5.5 3.8 10.7 10 12 6.2-1.3 10-6.5 10-12V7l-10-5zm0 2.2l8 4v8.8c0 4.4-3.1 8.6-8 9.8-4.9-1.2-8-5.4-8-9.8V8.2l8-4zM11 7v2h2V7h-2zm0 4v6h2v-6h-2z" />
-      </svg>
-    </div>
-
+        <article class="rounded-3xl bg-slate-800/80 backdrop-blur-sm border border-slate-700 p-6 text-center hover:border-teal-400/60 transition-all">
+         <div class="w-16 h-16 rounded-full bg-gradient-to-br from-teal-400 to-cyan-300 flex items-center justify-center mx-auto mb-4">
+          <svg viewbox="0 0 24 24" aria-hidden="true" class="w-7 h-7 text-slate-900"><path fill="currentColor" d="M12 1L3 5v6c0 5.55 3.84 10.74 9 12 5.16-1.26 9-6.45 9-12V5l-9-4zm0 2.18l7 3.12v5.7c0 4.83-3.13 9.37-7 10.5-3.87-1.13-7-5.67-7-10.5v-5.7l7-3.12zM11 7v2h2V7h-2zm0 4v6h2v-6h-2z" />
+          </svg>
+         </div>
          <h3 class="text-lg font-bold mb-2">Fabricación propia</h3>
          <p class="text-sm text-slate-300">Controlamos todo el proceso de fabricación para garantizar la máxima calidad en cada detalle.</p>
         </article>
         <article class="rounded-3xl bg-slate-800/80 backdrop-blur-sm border border-slate-700 p-6 text-center hover:border-teal-400/60 transition-all">
          <div class="w-16 h-16 rounded-full bg-gradient-to-br from-cyan-400 to-blue-300 flex items-center justify-center mx-auto mb-4">
-          <svg viewbox="0 0 24 24" aria-hidden="true" class="w-8 h-8 text-slate-900"><path fill="currentColor" d="M12 2C6.5 2 2 6.5 2 12s4.5 10 10 10 10-4.5 10-10S17.5 2 12 2zm0 2c4.4 0 8 3.6 8 8s-3.6 8-8 8-8-3.6-8-8 3.6-8 8-8zm-1 3v6.4l5.2 3.1.8-1.3-4-2.4V7h-2z" />
+          <svg viewBox="0 0 24 24" aria-hidden="true" class="w-8 h-8 text-slate-900"><path fill="currentColor" d="M12 2C6.5 2 2 6.5 2 12s4.5 10 10 10 10-4.5 10-10S17.5 2 12 2zm0 2c4.4 0 8 3.6 8 8s-3.6 8-8 8-8-3.6-8-8 3.6-8 8-8zm-1 3v6.4l5.2 3.1.8-1.3-4-2.4V7h-2z" />
           </svg>
          </div>
          <h3 class="text-lg font-bold mb-2">Proyectos llave en mano</h3>
@@ -241,7 +247,7 @@
      <div class="text-center mb-12 fade-in-up">
       <p class="inline-flex items-center gap-2 text-xs font-semibold tracking-[0.3em] uppercase text-teal-300 bg-slate-800/70 rounded-full px-4 py-1.5 border border-teal-400/40 mb-4"><span>Servicios profesionales</span></p>
       <h2 id="servicesTitle" class="text-4xl md:text-5xl font-black tracking-tight leading-tight mb-4">Todo lo que necesitas para tu piscina</h2>
-      <p class="text-lg text-slate-300 max-w-2xl mx-auto">Desde el diseño inicial hasta el mantenimiento continuo, te acompa��amos en cada etapa.</p>
+      <p class="text-lg text-slate-300 max-w-2xl mx-auto">Desde el diseño inicial hasta el mantenimiento continuo, te acompañamos en cada etapa.</p>
      </div>
      <div class="grid md:grid-cols-2 lg:grid-cols-3 gap-6"><!-- Servicio 1 -->
       <article class="rounded-3xl bg-slate-800/60 backdrop-blur-sm border border-slate-700 overflow-hidden hover:border-teal-400/60 transition-all soft-shadow">
@@ -278,7 +284,7 @@
          <li>• Áreas de spa y jacuzzis integrados</li>
          <li>• Sistemas de filtración comercial</li>
         </ul><button type="button" class="inline-flex items-center gap-1 text-xs font-semibold text-teal-300 hover:text-teal-200 transition-colors service-whatsapp-btn" data-message="Hola SPLASH SPLASH!!!!, quiero información sobre piscinas para hoteles y resorts."> <span>Proyectos hoteleros</span>
-         <svg viewbox="0 0 24 24" aria-hidden="true" class="w-3 h-8"><path fill="currentColor" d="M5 12h11.2l-4.6 4.6 1.4 1.4L20 12l-7-7-1.4 1.4 4.6 4.6H5z" />
+         <svg viewbox="0 0 24 24" aria-hidden="true" class="w-3 h-3"><path fill="currentColor" d="M5 12h11.2l-4.6 4.6 1.4 1.4L20 12l-7-7-1.4 1.4 4.6 4.6H5z" />
          </svg></button>
        </div>
       </article><!-- Servicio 3 -->
@@ -348,7 +354,7 @@
        </div>
        <div class="p-6 space-y-3">
         <h3 class="text-xl font-bold">Equipamiento Premium</h3>
-        <p class="text-sm text-slate-300">Sistemas de filtración, calefacción, automatización y accesorios de las mejores marcas internacionales.</p>
+        <p class="text-sm text-slate-300">Sistemas de filtración, calefacción, automatizaci��n y accesorios de las mejores marcas internacionales.</p>
         <ul class="text-xs text-slate-400 space-y-1">
          <li>• Bombas y filtros de alta eficiencia</li>
          <li>• Sistemas de climatización y spa</li>
@@ -364,8 +370,8 @@
    <section id="services" class="w-full min-h-screen flex items-center justify-center py-20 bg-gradient-to-br from-teal-900 via-slate-800 to-slate-900">
     <div class="max-w-7xl mx-auto px-4 w-full">
      <div class="text-center mb-12 fade-in-up">
-      <p class="inline-flex items-center gap-2 text-xs font-semibold tracking-[0.3em] uppercase text-teal-300 bg-slate-800/70 rounded-full px-4 py-1.5 border border-teal-400/40 mb-4"><span>CONTACTANOS</span></p>
-        <h2 id="contactTitle" class="text-4xl md:text-5xl font-black tracking-tight leading-tight mb-4">Hablemos de tu proyecto de piscina</h2>
+      <p class="inline-flex items-center gap-2 text-xs font-semibold tracking-[0.3em] uppercase text-teal-300 bg-slate-800/70 rounded-full px-4 py-1.5 border border-teal-400/40 mb-4"><span>Contáctanos</span></p>
+        <h2 id="contactTitle" class="text-4xl md:text-5xl font-black tracking-tight leading-tight mb-6">Hablemos de tu proyecto de piscina</h2>
         <p id="contactSubtitle" class="text-lg text-slate-200 max-w-2xl mx-auto">Completa el formulario y te contactaremos por WhatsApp con una propuesta personalizada.</p>
        </div>
        <div class="grid lg:grid-cols-2 gap-8"><!-- Formulario -->
@@ -385,10 +391,10 @@
           </div>
           <div><label for="dimensions" class="block text-xs font-semibold mb-1.5 text-slate-300">Medidas o área aproximada</label> <input id="dimensions" name="dimensions" type="text" placeholder="Ej: 8m x 4m, patio trasero 50m²" class="w-full rounded-2xl bg-slate-900/60 border border-slate-600 px-4 py-2.5 text-sm text-white placeholder:text-slate-500 focus:border-teal-400 focus:ring-0">
           </div>
-          <div><label for="message" class="block text-xs font-semibold mb-1.5 text-slate-300">Cuéntanos tu idea</label> <textarea id="message" name="message" rows="4" placeholder="Describe tu proyecto: estilo, acabados, características especiales..." class="w-full rounded-2xl bg-slate-900/60 border border-slate-600 px-4 py-2.5 text-sm text-white placeholder:text-slate-500 focus:border-teal-400 focus:ring-0"></textarea>
+          <div><label for="message" class="block text-xs font-semibold mb-1.5 text-slate-300">Cu����ntanos tu idea</label> <textarea id="message" name="message" rows="4" placeholder="Describe tu proyecto: estilo, acabados, características especiales..." class="w-full rounded-2xl bg-slate-900/60 border border-slate-600 px-4 py-2.5 text-sm text-white placeholder:text-slate-500 focus:border-teal-400 focus:ring-0"></textarea>
           </div>
           <div class="flex items-center gap-2 text-xs text-slate-400"><span class="w-2 h-2 rounded-full bg-teal-400"></span>
-           <p>Al enviar, se abrir�� WhatsApp con tus datos listos para enviar.</p>
+           <p>Al enviar, se abrirá WhatsApp con tus datos listos para enviar.</p>
           </div>
           <div class="pt-2 pb-4 md:pt-0 md:pb-0"><button id="formSubmitBtn" type="submit" class="w-full inline-flex items-center justify-center gap-2 bg-teal-400 text-slate-900 font-bold text-sm px-6 py-3 rounded-full hover:bg-teal-300 transition-all"> <span id="formSubmitLabel">Enviar por WhatsApp</span>
             <svg viewbox="0 0 24 24" aria-hidden="true" class="w-4 h-4"><path fill="currentColor" d="M12 2C6.5 2 2 6.1 2 11c0 1.8.6 3.5 1.6 5L2 22l6-1.6c1.4.8 3 1.2 4.6 1.2 5.5 0 10-4.1 10-9s-4.5-9-10-9z" />
@@ -447,7 +453,7 @@
     </header>
     <div class="px-5 py-4 space-y-3 max-h-96 overflow-y-auto">
      <p class="text-xs text-slate-400">Elige una opción rápida o escribe tu consulta:</p>
-     <div class="space-y-2"><button type="button" class="w-full text-left rounded-2xl bg-slate-800 border border-slate-700 px-4 py-2.5 hover:border-teal-400 transition-colors text-xs quick-question-btn" data-text="Hola, quiero cotizar una piscina nueva."> 🏊 Cotizar piscina nueva </button> <button type="button" class="w-full text-left rounded-2xl bg-slate-800 border border-slate-700 px-4 py-2.5 hover:border-teal-400 transition-colors text-xs quick-question-btn" data-text="Hola, quiero remodelar mi piscina existente."> 🔧 Remodelar piscina existente </button> <button type="button" class="w-full text-left rounded-2xl bg-slate-800 border border-slate-700 px-4 py-2.5 hover:border-teal-400 transition-colors text-xs quick-question-btn" data-text="Hola, necesito un plan de mantenimiento."> ��� Plan de mantenimiento </button>
+     <div class="space-y-2"><button type="button" class="w-full text-left rounded-2xl bg-slate-800 border border-slate-700 px-4 py-2.5 hover:border-teal-400 transition-colors text-xs quick-question-btn" data-text="Hola, quiero cotizar una piscina nueva."> 🏊 Cotizar piscina nueva </button> <button type="button" class="w-full text-left rounded-2xl bg-slate-800 border border-slate-700 px-4 py-2.5 hover:border-teal-400 transition-colors text-xs quick-question-btn" data-text="Hola, quiero remodelar mi piscina existente."> 🔧 Remodelar piscina existente </button> <button type="button" class="w-full text-left rounded-2xl bg-slate-800 border border-slate-700 px-4 py-2.5 hover:border-teal-400 transition-colors text-xs quick-question-btn" data-text="Hola, necesito un plan de mantenimiento."> 🧹 Plan de mantenimiento </button>
      </div>
      <form id="whatsappQuickForm" class="space-y-3 pt-2">
       <div><label for="w_name" class="block text-xs font-semibold mb-1 text-slate-300">Nombre</label> <input id="w_name" name="w_name" type="text" class="w-full rounded-2xl bg-slate-800 border border-slate-700 px-3 py-2 text-xs text-white placeholder:text-slate-500 focus:border-teal-400 focus:ring-0">
@@ -461,7 +467,7 @@
   <footer class="w-full border-t border-slate-700 bg-slate-900/95">
    <div class="max-w-7xl mx-auto px-4 py-5 flex flex-col md:flex-row items-center justify-between gap-3">
     <div class="text-xs text-slate-400 text-center md:text-left">
-     <p>© 2026 SPLASH SPLASH!!!! · Todos los derechos reservados.</p>
+     <p>© 2025 SPLASH SPLASH!!!! · Todos los derechos reservados.</p>
      <p class="mt-0.5">Expertos en diseño, construcción y mantenimiento de piscinas.</p>
     </div>
     <div class="text-xs text-slate-300 text-center md:text-right"><a href="https://leonova-studio.github.io/portfolio/" target="_blank" rel="noopener noreferrer" class="inline-flex items-center gap-1 hover:text-teal-300 transition-colors"> <span>Diseñado por:</span> <span class="font-bold">LEONOVA STUDIO</span>
@@ -802,7 +808,5 @@
       });
     })();
   </script>
- <script>(function(){function c(){var b=a.contentDocument||a.contentWindow.document;if(b){var d=b.createElement('script');d.innerHTML="window.__CF$cv$params={r:'9a773ab6b33e7ade',t:'MTc2NDY0MDgxMi4wMDAwMDA='};var a=document.createElement('script');a.nonce='';a.src='/cdn-cgi/challenge-platform/scripts/jsd/main.js';document.getElementsByTagName('head')[0].appendChild(a);";b.getElementsByTagName('head')[0].appendChild(d)}}if(document.body){var a=document.createElement('iframe');a.height=1;a.width=1;a.style.position='absolute';a.style.top=0;a.style.left=0;a.style.border='none';a.style.visibility='hidden';document.body.appendChild(a);if('loading'!==document.readyState)c();else if(window.addEventListener)document.addEventListener('DOMContentLoaded',c);else{var e=document.onreadystatechange||function(){};document.onreadystatechange=function(b){e(b);'loading'!==document.readyState&&(document.onreadystatechange=e,c())}}}})();</script></body>
+ <script>(function(){function c(){var b=a.contentDocument||a.contentWindow.document;if(b){var d=b.createElement('script');d.innerHTML="window.__CF$cv$params={r:'9a7b1c42734da563',t:'MTc2NDY4MTUwOC4wMDAwMDA='};var a=document.createElement('script');a.nonce='';a.src='/cdn-cgi/challenge-platform/scripts/jsd/main.js';document.getElementsByTagName('head')[0].appendChild(a);";b.getElementsByTagName('head')[0].appendChild(d)}}if(document.body){var a=document.createElement('iframe');a.height=1;a.width=1;a.style.position='absolute';a.style.top=0;a.style.left=0;a.style.border='none';a.style.visibility='hidden';document.body.appendChild(a);if('loading'!==document.readyState)c();else if(window.addEventListener)document.addEventListener('DOMContentLoaded',c);else{var e=document.onreadystatechange||function(){};document.onreadystatechange=function(b){e(b);'loading'!==document.readyState&&(document.onreadystatechange=e,c())}}}})();</script></body>
 </html>
-
-
